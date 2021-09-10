@@ -1,5 +1,4 @@
-import React from 'react';
-import '../assets/styles/components/Tools.css'
+import '../css/Tools.css'
 
 const Tools = ()=> (
   <section class="tools">

@@ -1,0 +1,27 @@
+.catchCoordinates {
+  position: absolute;
+  bottom: 115px;
+  right: 35px;
+  width: 155px;
+  height: 33px;
+  background-color:var(--backgroundButtons); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px; 
+  padding-left: 8px; 
+}
+.copiedCoordinates{
+  position: absolute;
+  bottom: 60px;
+  right: 5px;
+  width: 215px;
+  height: 46px;
+  background-color:var(--backgroundButtons); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px; 
+  padding-left: 8px;
+}
+

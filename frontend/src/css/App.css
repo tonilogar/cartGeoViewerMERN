@@ -38,7 +38,9 @@ svg {
   background-color:var(--backgroundButtons);
 }
 
-svg:hover {
+svg:hover, p, .search, .controls, 
+.geolocator, .catchCoordinates,
+.copiedCoordinates, .cameraHeigth, .coordinates {
   background-color:var(--colorTextSoftGrey); 
   cursor: pointer; 
 }

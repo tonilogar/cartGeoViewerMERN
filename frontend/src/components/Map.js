@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import mapboxgl from 'mapbox-gl';
-import '../assets/styles/components/Map.css';
+import '../css/Map.css';
 
 
 mapboxgl.accessToken = "pk.eyJ1IjoidG9uaWxvZ2FyIiwiYSI6ImNqYjZlamY1dzBtMXEzM3FxbmppeXBpeHoifQ.DbzKh1wtO4p4QOUjj9eg1w";
@@ -13,10 +13,10 @@ const Map = () => {
     const map = new mapboxgl.Map({
       container: mapContainerRef.current,
       style: 'mapbox://styles/mapbox/satellite-v9',
-      center: [1.380, 41.25],
+      center: [1.380, 41.5],
       maxZoom: 25,
       minZoom: 1.65,
-      zoom: 8.4
+      zoom: 7.9
     });
     
     // Add navigation control (the +/- zoom buttons)
@@ -43,11 +43,11 @@ const Map = () => {
           }
       });
     });
-    map.addControl(new mapboxgl.NavigationControl());
+    /* map.addControl(new mapboxgl.NavigationControl());
     map.getCanvas().style.cursor = 'default';
     map.on('mouseenter', 'clusters', () => {
     map.getCanvas().style.cursor = 'pointer'
-  }) 
+    })  */
    
   
 

@@ -1,8 +1,6 @@
-@import "../App.css";
-
-
 .user {
   position: absolute;
   top: 5px;
   right: 200px;
+  border-radius: 4px; 
 }
