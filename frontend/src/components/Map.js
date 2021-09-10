@@ -1,13 +1,11 @@
-import React, { useRef, useEffect } from 'react';
-import mapboxgl from 'mapbox-gl';
-import '../assets/styles/components/Map.css';
+import React, { useRef, useEffect, useState } from 'react'
+import mapboxgl from 'mapbox-gl'
+import '../assets/styles/components/Map.css'
 
-
-mapboxgl.accessToken = "pk.eyJ1IjoidG9uaWxvZ2FyIiwiYSI6ImNqYjZlamY1dzBtMXEzM3FxbmppeXBpeHoifQ.DbzKh1wtO4p4QOUjj9eg1w";
+mapboxgl.accessToken = "pk.eyJ1IjoidG9uaWxvZ2FyIiwiYSI6ImNqYjZlamY1dzBtMXEzM3FxbmppeXBpeHoifQ.DbzKh1wtO4p4QOUjj9eg1w"
 
 const Map = () => {
-  const mapContainerRef = useRef(null);
-
+  const mapContainerRef = useRef(null)
   // Initialize map when component mounts
   useEffect(() => {
     const map = new mapboxgl.Map({
@@ -43,23 +41,11 @@ const Map = () => {
           }
       });
     });
-    map.addControl(new mapboxgl.NavigationControl());
-    map.getCanvas().style.cursor = 'default';
-    map.on('mouseenter', 'clusters', () => {
-    map.getCanvas().style.cursor = 'pointer'
-  }) 
-   
-  
-
-
-  
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+    },)
 
   return (
-    <div className='map-container' ref={mapContainerRef}></div>
-    
-  );
+  <div className='map-container' ref={mapContainerRef}></div>
+   )
 };
-
 
 export default Map;

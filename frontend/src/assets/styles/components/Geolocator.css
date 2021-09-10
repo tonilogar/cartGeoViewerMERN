@@ -1,0 +1,9 @@
+.geolocator {
+  position: absolute;
+  top: 135px;
+  right: 5px;
+  width: 30px;
+  height: 30px;
+  z-index: 100;
+  background-color: red;
+}
