@@ -17,7 +17,7 @@
 }
 html, body {
   font-size: 62.5%;
-  /* background-color:var(--backgroundColorHeader);   */
+  background-color:var(--backgroundColorHeader);  
   overflow: hidden; 
 } 
 .map {
