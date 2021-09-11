@@ -60,3 +60,11 @@
   background-color: white !important;
   border-radius: 4px !important;
 }
+.mapboxgl-ctrl-scale {
+  background-color: white !important;
+  border-radius: 4px !important;
+  border: none !important;
+  width: 65px !important;
+  height: 25px !important;
+  font-size: 15px !important;
+}

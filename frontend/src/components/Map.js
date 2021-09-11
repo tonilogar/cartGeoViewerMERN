@@ -46,10 +46,11 @@ const Map = () => {
         // Sky
     });
     // Add dem sky
-    /* map.getCanvas().style.cursor = 'default';
+    //Style cursor over de map
+    map.getCanvas().style.cursor = 'default';
     map.on('mouseenter', 'clusters', () => {
     map.getCanvas().style.cursor = 'pointer'
-    })  */
+    }) 
     
     // Add navigation control (the +/- zoom buttons)
     const nav = new mapboxgl.NavigationControl();
@@ -64,17 +65,21 @@ const Map = () => {
   	map.addControl(nav);
     // Add navigation control (the +/- zoom buttons)
     // Geolocate ////////////////////////////////////
-
-    
-
-    
-     map.addControl(new mapboxgl.GeolocateControl({
+    map.addControl(new mapboxgl.GeolocateControl({
       positionOptions: {
       enableHighAccuracy: true
       },
       trackUserLocation: true,
       showUserHeading: true
-      })); 
+    })); 
+
+    map.addControl(new mapboxgl.ScaleControl({
+      width: 80, 
+      unit: 'metric'
+      }));
+
+
+      
 
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 

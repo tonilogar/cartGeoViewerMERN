@@ -44,6 +44,7 @@ svg:hover, p:hover, .search:hover, .controls:hover,
 .mapboxgl-ctrl-icon:hover   {
   background-color:var(--colorTextSoftGrey); 
   cursor: pointer; 
+  border-radius: 4px !important;
 }
 
 body {
