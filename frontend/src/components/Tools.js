@@ -1,7 +1,7 @@
 import '../css/Tools.css'
 
 const Tools = ()=> (
-  <section class="tools">
+  <section className="tools">
     <svg className="tools--MenuOpen" viewBox="0 0 92.833 92.833">
       <g
         fill="#030000"

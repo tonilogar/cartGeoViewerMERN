@@ -48,7 +48,9 @@ const Map = () => {
     map.on('mouseenter', 'clusters', () => {
     map.getCanvas().style.cursor = 'pointer'
     })  */
-   
+    /* const controlNavigation = map.addControl(new mapboxgl.NavigationControl());
+    console.log(controlNavigation); */
+    /* document.getElementById('controls').appendChild(controlNavigation.onAdd(map)); */
   
 
 

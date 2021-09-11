@@ -1,9 +1,0 @@
-.controls {
-  position: absolute;
-  top: 43px;
-  right: 5px;
-  width: 30px;
-  height: 85px;
-  z-index: 100;
-  background-color: red;
-}

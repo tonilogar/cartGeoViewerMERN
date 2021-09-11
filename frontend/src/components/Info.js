@@ -13,7 +13,7 @@ const Info = () => {
           fontVariantLigatures: "normal",
           fontVariantNumeric: "normal",
         }}
-        ariaLabel="i">
+        aria-label="i">
       </path>
     </svg>
   </abbr>
