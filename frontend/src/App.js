@@ -3,7 +3,7 @@ import Map from './components/Map';
 import Tools from './components/Tools';
 import User from './components/User';
 import Search from './components/Search';
-import Controls from './components/Controls'
+/* import Controls from './components/Controls' */
 import Geolocator from './components/Geolocator'
 import Perspective from './components/Perspective'
 import Info from './components/Info'
@@ -19,8 +19,8 @@ const App = () => (
     <Map/>
     <Tools/>
     <User/>
-    <Search/>
-    <Controls/>
+    {/*<Search/>
+     <Controls/> */}
     <Geolocator/>
     <Perspective/>
     <Info/>

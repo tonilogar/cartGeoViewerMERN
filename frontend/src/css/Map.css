@@ -6,4 +6,31 @@
   right: 0;
 }
 
+.mapboxgl-ctrl {
+  position: absolute !important;
+  top: 32px !important;
+  right: -5px !important;
+  width: 30px !important;
+}
 
+.mapboxgl-ctrl-geocoder {
+  position: absolute !important;
+  top: -5px !important;
+  right: 30px !important;
+  width: 30px !important;
+}
+.mapboxgl-ctrl-geocoder--input {
+  height: 30px !important;
+ }
+ .mapboxgl-ctrl-geocoder--icon {
+  position: absolute !important;
+  top: 5px !important;
+  left: 0px !important;
+  width: 30px !important;
+}
+.mapboxgl-ctrl-geocoder--icon-close {
+  position: absolute !important;
+  top: 0px !important;
+  left: -25px !important;
+  width: 30px !important;
+}

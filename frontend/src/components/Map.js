@@ -1,7 +1,8 @@
 import React, { useRef, useEffect } from 'react';
 import mapboxgl from 'mapbox-gl';
 import '../css/Map.css';
-
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 
 mapboxgl.accessToken = "pk.eyJ1IjoidG9uaWxvZ2FyIiwiYSI6ImNqYjZlamY1dzBtMXEzM3FxbmppeXBpeHoifQ.DbzKh1wtO4p4QOUjj9eg1w";
 
@@ -43,24 +44,26 @@ const Map = () => {
           }
       });
     });
-    /* map.addControl(new mapboxgl.NavigationControl());
-    map.getCanvas().style.cursor = 'default';
+    /* map.getCanvas().style.cursor = 'default';
     map.on('mouseenter', 'clusters', () => {
     map.getCanvas().style.cursor = 'pointer'
     })  */
-    /* const controlNavigation = map.addControl(new mapboxgl.NavigationControl());
-    console.log(controlNavigation); */
-    /* document.getElementById('controls').appendChild(controlNavigation.onAdd(map)); */
-  
-
-
+    
+    const nav = new mapboxgl.NavigationControl();
+		map.addControl(nav);
+    
+    map.addControl(
+      new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl
+      })
+    ); 
   
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className='map-container' ref={mapContainerRef}></div>
-    
-  );
+    );
 };
 
 
