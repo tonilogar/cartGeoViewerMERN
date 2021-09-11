@@ -20,9 +20,9 @@ const Map = () => {
       zoom: 7.9
     });
     
-    // Add navigation control (the +/- zoom buttons)
-    /* map.addControl(new mapboxgl.NavigationControl(), 'top-right'); */
-    // DEM
+    
+    
+    // Add dem sky
     map.on('load', function () {
       map.addSource('mapbox-dem', {
           'type': 'raster-dem',
@@ -32,8 +32,8 @@ const Map = () => {
       });
       // add the DEM source as a terrain layer with exaggerated height
       map.setTerrain({ 'source': 'mapbox-dem', 'exaggeration': 1.5 });
-      
-      // add a sky layer that will show when the map is highly pitched
+      // Dem
+      // Sky
       map.addLayer({
           'id': 'sky',
           'type': 'sky',
@@ -42,23 +42,40 @@ const Map = () => {
           'sky-atmosphere-sun': [0.0, 0.0],
           'sky-atmosphere-sun-intensity': 15
           }
-      });
+        });
+        // Sky
     });
+    // Add dem sky
     /* map.getCanvas().style.cursor = 'default';
     map.on('mouseenter', 'clusters', () => {
     map.getCanvas().style.cursor = 'pointer'
     })  */
     
+    // Add navigation control (the +/- zoom buttons)
     const nav = new mapboxgl.NavigationControl();
-		map.addControl(nav);
-    
+
     map.addControl(
       new MapboxGeocoder({
         accessToken: mapboxgl.accessToken,
         mapboxgl: mapboxgl
       })
     ); 
-  
+
+  	map.addControl(nav);
+    // Add navigation control (the +/- zoom buttons)
+    // Geolocate ////////////////////////////////////
+
+    
+
+    
+     map.addControl(new mapboxgl.GeolocateControl({
+      positionOptions: {
+      enableHighAccuracy: true
+      },
+      trackUserLocation: true,
+      showUserHeading: true
+      })); 
+
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (

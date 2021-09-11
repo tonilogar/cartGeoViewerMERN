@@ -40,7 +40,8 @@ svg {
 
 svg:hover, p:hover, .search:hover, .controls:hover, 
 .geolocator:hover, .catchCoordinates:hover,
-.copiedCoordinates:hover, .cameraHeigth:hover, .coordinates:hover {
+.copiedCoordinates:hover, .cameraHeigth:hover, .coordinates:hover,
+.mapboxgl-ctrl-icon:hover   {
   background-color:var(--colorTextSoftGrey); 
   cursor: pointer; 
 }
