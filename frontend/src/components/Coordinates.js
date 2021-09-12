@@ -1,7 +1,12 @@
+import React from 'react';
 import '../css/Coordinates.css'
 
-const Coordinates = ({children}) => (
-  <div className="coordinates" > {children}</div>
-)
+const Coordinates = () => {
+  
+
+  return (
+    <div className='coordinates' ></div>
+    )
+}
 
 export default Coordinates;

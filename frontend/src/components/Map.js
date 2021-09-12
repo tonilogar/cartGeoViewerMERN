@@ -7,6 +7,7 @@ import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 mapboxgl.accessToken = "pk.eyJ1IjoidG9uaWxvZ2FyIiwiYSI6ImNqYjZlamY1dzBtMXEzM3FxbmppeXBpeHoifQ.DbzKh1wtO4p4QOUjj9eg1w";
 
 const Map = () => {
+  
   const mapContainerRef = useRef(null);
 
   // Initialize map when component mounts
@@ -78,10 +79,17 @@ const Map = () => {
       unit: 'metric'
       }));
 
+     
+    
+    
+
 
       
 
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+//Coordinates
+
 
   return (
     <div className='map-container' ref={mapContainerRef}></div>
