@@ -43,6 +43,9 @@
   background-color: white !important;
   border-radius: 4px !important;
 }
+.mapboxgl-ctrl-zoom-out:hover, .mapboxgl-ctrl-zoom-in:hover, .mapboxgl-ctrl-compass:hover {
+  background-color: rgb(223, 0, 0) !important;
+}
 
 .mapboxgl-ctrl-compass {
   position: absolute !important;
@@ -52,6 +55,7 @@
   background-color: white !important;
   border-radius: 4px !important;
 }
+
 .mapboxgl-ctrl-geolocate {
   position: absolute !important;
   top: 120px !important;
@@ -68,3 +72,4 @@
   height: 25px !important;
   font-size: 15px !important;
 }
+

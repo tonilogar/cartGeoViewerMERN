@@ -17,7 +17,7 @@
 }
 html, body {
   font-size: 62.5%;
-  background-color:var(--backgroundColorHeader);  
+  /* background-color:var(--backgroundColorHeader); */  
   overflow: hidden; 
 } 
 .map {
@@ -40,13 +40,14 @@ svg {
 
 svg:hover, p:hover, .search:hover, .controls:hover, 
 .geolocator:hover, .catchCoordinates:hover,
-.copiedCoordinates:hover, .cameraHeigth:hover, .coordinates:hover,
-.mapboxgl-ctrl-icon:hover   {
+.copiedCoordinates:hover, .cameraHeigth:hover, .coordinates:hover {
   background-color:var(--colorTextSoftGrey); 
   cursor: pointer; 
   border-radius: 4px !important;
 }
-
+.mapboxgl-ctrl-zoom-out:hover, .mapboxgl-ctrl-zoom-in:hover, .mapboxgl-ctrl-compass:hover {
+  background-color: rgb(223, 0, 0) !important;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

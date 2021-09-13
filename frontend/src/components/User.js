@@ -1,7 +1,9 @@
+import React, { Component } from 'react'
 import '../css/User.css'
-
-const Tools = ()=> (
-  <svg className="user" viewBox="0 0 650 650">
+export default class User extends Component {
+  render() {
+    return (
+      <svg className="user" viewBox="0 0 650 650">
       <circle
         cx="313.65"
         cy="176.65"
@@ -28,6 +30,9 @@ const Tools = ()=> (
         ry="232.06"
       ></ellipse>
     </svg>
-)
+    )
+  }
+}
 
-export default Tools;
+
+
