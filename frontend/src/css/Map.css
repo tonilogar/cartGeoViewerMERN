@@ -8,9 +8,8 @@
 
 .mapboxgl-ctrl-geocoder {
   position: absolute !important;
-  top: -5px !important;
-  right: 37px !important;
-  width: 30px !important;
+  top: -4px !important;
+  right: -5px !important;
 }
 .mapboxgl-ctrl-geocoder--input {
   height: 30px !important;

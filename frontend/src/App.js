@@ -1,5 +1,7 @@
 import React from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './css/App.css'
 import Map from './components/Map';
 import Tools from './components/Tools';
 import User from './components/User';
@@ -9,10 +11,10 @@ import Layers from './components/Layers'
 import CatchCoordinates from './components/CatchCoordinates'
 import Coordinates from './components/Coordinates'
 import SignIn from './components/SignIn'
-import SignOut from './components/SignOut'
+import ForgotPass from './components/ForgotPass'
 import SignUp from './components/SignUp'
 import Fondo from './components/Fondo'
-import './css/App.css';
+
 
 
 const App = () => (
@@ -37,7 +39,7 @@ const App = () => (
     <Route exact path="/" component={CatchCoordinates}/>
     <Route exact path="/" component={Coordinates}/>
     <Route exact path="/signin" component={SignIn}/>
-    <Route exact path="/signout" component={SignOut}/>
+    <Route exact path="/forgotpass" component={ForgotPass}/>
     <Route exact path="/signup" component={SignUp}/> 
   </Router>
 

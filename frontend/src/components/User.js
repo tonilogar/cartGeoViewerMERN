@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import '../css/User.css'
+import {Link} from 'react-router-dom'
+
 export default class User extends Component {
   render() {
     return (
-      <svg className="user" viewBox="0 0 650 650">
+      <div className="user">
+      <svg  viewBox="0 0 650 650">
       <circle
         cx="313.65"
         cy="176.65"
@@ -30,6 +33,12 @@ export default class User extends Component {
         ry="232.06"
       ></ellipse>
     </svg>
+    <ul className="userUl">
+      <li><Link href="indexCreateUser.html">Sign up</Link></li>
+      <li><Link href="index.html">Sign out</Link></li>
+      <li><Link href="indexLoginUser.html">Sign in</Link></li>
+    </ul>
+    </div>
     )
   }
 }

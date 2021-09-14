@@ -1,6 +1,34 @@
 .user {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 6px;
+  right: 250px;
+  margin: 0px;
+  padding: 0px;
+  height: 50px;
+  /* width: 100px; */
+  display: grid;
+  justify-items: start;
+}
+
+.user svg {
   border-radius: 4px; 
 }
+.userUl {
+  display: none;
+  position: absolute;
+  width: 100px;
+  top: 40px; 
+  margin: 0px;
+  padding: 0px;
+}
+.userUl a {
+  text-decoration: none;
+  color: white;
+}
+
+.user:hover .userUl, .userUl:hover { 
+  display: block;   
+}
+
+
+
