@@ -24,8 +24,8 @@ html, body {
   width: 100vw;
   height: 100vh;
 }
-li, ul, p {
-  display: inline-block;
+li, ul, p, a {
+  text-decoration: none;
   list-style: none;
 }
 .mapboxgl-ctrl-logo, .mapboxgl-ctrl-bottom-right {
@@ -38,16 +38,14 @@ svg {
   background-color:var(--backgroundButtons);
 }
 
-svg:hover, p:hover, .search:hover, .controls:hover, 
-.geolocator:hover, .catchCoordinates:hover,
-.copiedCoordinates:hover, .cameraHeigth:hover, .coordinates:hover {
-  background-color:var(--colorTextSoftGrey); 
+svg:hover, p:hover, .catchCoordinates:hover,.mapboxgl-ctrl-zoom-out:hover, 
+.mapboxgl-ctrl-zoom-in:hover, .mapboxgl-ctrl-compass:hover,
+.copiedCoordinates:hover, .mapboxgl-ctrl-scale:hover, .coordinates:hover, 
+.mapboxgl-ctrl-geolocate:hover {
+  background-color:var(--colorTextSoftGrey) !important; 
   cursor: pointer; 
-  border-radius: 4px !important;
 }
-.mapboxgl-ctrl-zoom-out:hover, .mapboxgl-ctrl-zoom-in:hover, .mapboxgl-ctrl-compass:hover {
-  background-color: rgb(223, 0, 0) !important;
-}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

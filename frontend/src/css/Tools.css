@@ -2,7 +2,6 @@
   position: absolute;
   top: 5px;
   left: 5px;
-  border-radius: 4px; 
 }
 .tools--MenuClose {
   display: none;
@@ -11,5 +10,4 @@
   position: absolute;
   top: 40px;
   left: 5px;
-  border-radius: 4px; 
 }

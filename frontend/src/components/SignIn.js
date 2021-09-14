@@ -12,7 +12,7 @@ export default class SignIn extends Component {
           <input className="inputPassword" type="password" placeholder="********"/>
           <input className="buttonLogin" type="submit" value="Login" />
           <label className="labelFPassword"><a href="indexForgotPasswordEnglish.html">Forgot password?</a></label>
-          <button className="buttonHome" onclick="home()" type="button"><a href="indexEnglish.html">Home</a></button>
+          <button className="buttonHome" onclick="home()" type="button"><Link to="/">Home</Link></button>
           <footer className="footer">
             <Link to="/">Terms</Link>
             <Link to="/">Privacy</Link>

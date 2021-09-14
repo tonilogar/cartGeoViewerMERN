@@ -10,9 +10,7 @@
   justify-items: start;
 }
 
-.user svg {
-  border-radius: 4px; 
-}
+
 .userUl {
   display: none;
   position: absolute;

@@ -34,9 +34,9 @@ export default class User extends Component {
       ></ellipse>
     </svg>
     <ul className="userUl">
-      <li><Link href="indexCreateUser.html">Sign up</Link></li>
-      <li><Link href="index.html">Sign out</Link></li>
-      <li><Link href="indexLoginUser.html">Sign in</Link></li>
+      <li><Link to="/SignUp">Sign up</Link></li>
+      <li><Link to="/SignOut">Sign out</Link></li>
+      <li><Link to="/SignIn">Sign in</Link></li>
     </ul>
     </div>
     )
