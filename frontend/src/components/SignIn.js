@@ -6,12 +6,12 @@ export default class SignIn extends Component {
     return (
       <form className="formSignIn">
           <h1> Login </h1>
-          <label className="labelUserName"> User name : </label>
+          <label className="labelUserName"> User name  </label>
           <input className="inputUserName" type="text" />
-          <label className="labelPassword"> Password : </label>
+          <label className="labelPassword"> Password </label>
           <input className="inputPassword" type="password" placeholder="********"/>
           <input className="buttonLogin" type="submit" value="Login" />
-          <label className="labelFPassword"><a href="indexForgotPasswordEnglish.html">Forgot password?</a></label>
+          <label className="labelFPassword"><Link to="/forgotpass">Forgot password?</Link></label>
           <button className="buttonHome" onclick="home()" type="button"><Link to="/">Home</Link></button>
           <footer className="footer">
             <Link to="/">Terms</Link>

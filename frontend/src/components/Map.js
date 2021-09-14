@@ -7,7 +7,43 @@ import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 mapboxgl.accessToken = "pk.eyJ1IjoidG9uaWxvZ2FyIiwiYSI6ImNqYjZlamY1dzBtMXEzM3FxbmppeXBpeHoifQ.DbzKh1wtO4p4QOUjj9eg1w";
 
 const Map = () => {
+  let coordinatesGeocoder = function (query) {
+    // match anything which looks like a decimal degrees coordinate pair
+    let matches = query.match(
+        /^[ ]*(?:Lat: )?(-?\d+\.?\d*)[, ]+(?:Lng: )?(-?\d+\.?\d*)[ ]*$/i
+    );
+    if (!matches) {
+        return null;
+    }
+     
+    function coordinateFeature(lng, lat) {
+        return {
+            center: [lng, lat],
+            geometry: {
+                type: 'Point',
+                coordinates: [lng, lat]
+            },
+            place_name: 'Lat: ' + lat + ' Lng: ' + lng,
+            place_type: ['coordinate'],
+            properties: {},
+            type: 'Feature'
+        };
+    }
+     
+    let coord1 = Number(matches[1]);
+    let coord2 = Number(matches[2]);
+    let geocodes = [];
+    
+    if (geocodes.length === 0) {
+      geocodes.push(coordinateFeature(coord2, coord1));
+    }
+     
+    return geocodes;
+  };
+
+
   
+
   const mapContainerRef = useRef(null);
 
   // Initialize map when component mounts
@@ -59,8 +95,11 @@ const Map = () => {
     map.addControl(
       new MapboxGeocoder({
         accessToken: mapboxgl.accessToken,
+        localGeocoder: coordinatesGeocoder,
+        zoom: 8,
+        placeholder: 'toponym or Lat, long',
         mapboxgl: mapboxgl
-      })
+    })
     ); 
 
   	map.addControl(nav);
@@ -80,7 +119,12 @@ const Map = () => {
       }));
 
      
-    
+      map.on('mousemove', function (e) {
+        let lat= e.lngLat.lat;
+        let lng= e.lngLat.lng;
+        //document.getElementById('widgetCoordinates').innerHTML = `Lat: ${lat} Long: ${lng}`;
+    console.log(lat)
+      });
     
 
 

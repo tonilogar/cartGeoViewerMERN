@@ -1,12 +1,13 @@
-import React from 'react';
-import '../css/Coordinates.css'
+import React, { Component } from 'react'
 
-const Coordinates = () => {
+
+export default class Coordinates extends Component {
   
-
-  return (
-    <div className='coordinates' ></div>
+  render() {
+    return (
+      <div>
+        
+      </div>
     )
+  }
 }
-
-export default Coordinates;

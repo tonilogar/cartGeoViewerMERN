@@ -35,7 +35,7 @@ export default class User extends Component {
     </svg>
     <ul className="userUl">
       <li><Link to="/SignUp">Sign up</Link></li>
-      <li><Link to="/SignOut">Sign out</Link></li>
+      <li><Link to="/">Sign out</Link></li>
       <li><Link to="/SignIn">Sign in</Link></li>
     </ul>
     </div>
