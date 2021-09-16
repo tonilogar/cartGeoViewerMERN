@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-
+import "../css/Fondo.css";
 export default class Fondo extends Component {
     render() {
         return (
-            <div>
-                Fondo
+            <div className = "fondo">
+                {this.props.palabra}
             </div>
         )
     }

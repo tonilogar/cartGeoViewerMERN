@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import '../css/Perspective.css'
 export default class Perspective extends Component {
+  
   render() {
     
     return (
+      
       <button type="button">
       <abbr title="Change perspective 2d 3d">
         <svg className="perspective_2d_3d" viewBox="0 0 650 650">
