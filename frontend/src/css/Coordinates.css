@@ -1,9 +1,0 @@
-.coordinates {
-  position: absolute;
-  bottom: 5px;
-  right: 5px;
-  width: 215px;
-  height: 46px;
-  z-index: 100;
-  background-color:var(--backgroundButtons); 
-}
