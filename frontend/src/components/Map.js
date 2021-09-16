@@ -119,13 +119,16 @@ const Map = () => {
       }));
 
      
-      map.on('mousemove', function (e) {
-        let lat= e.lngLat.lat;
-        let lng= e.lngLat.lng;
-        //document.getElementById('widgetCoordinates').innerHTML = `Lat: ${lat} Long: ${lng}`;
-    console.log(lat)
-      });
-    
+    map.on('mousemove', function (e) {
+      const lat= e.lngLat.lat;
+      const lng= e.lngLat.lng;
+      document.getElementById('coordinates').innerHTML = `Lat: ${lat} Long: ${lng}`;
+    });
+    map.on('dblclick', function (e) {
+      let lat= e.lngLat.lat;
+      let lng= e.lngLat.lng;
+      document.getElementById('copiedCoordinates').innerHTML = `Lat: ${lat} Long: ${lng}`;
+  });
 
 
       
@@ -136,7 +139,12 @@ const Map = () => {
 
 
   return (
-    <div className='map-container' ref={mapContainerRef}></div>
+    <div>
+      <div className='map-container' ref={mapContainerRef}></div>
+      <p className="catchCoordinates ">Double click copy the ground coordinates</p>
+      <div className="copiedCoordinates" id="copiedCoordinates"></div>
+      <div className="coordinates" id="coordinates"></div>
+    </div>
     );
 };
 
