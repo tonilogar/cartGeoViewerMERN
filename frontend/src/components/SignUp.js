@@ -3,10 +3,20 @@ import '../css/SignUp.css'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 export default class SignUp extends Component {
+    state = {
+       
+        users: []
+    }
 
     async componentDidMount() {
-       const res = await axios.get ('http://localhost:4000/api/users');
-       console.log(res)
+        this.getUsers();
+    }
+
+    getUsers = async () => {
+        const res = await axios.get('http://localhost:4000/api/users');
+        this.setState({
+            users: res.data
+        });
     }
     
     render() {
