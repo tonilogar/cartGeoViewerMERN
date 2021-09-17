@@ -1,13 +1,13 @@
-const { Router } = require('express')
-const router = Router()
+const { Router } = require('express');
+const router = Router();
 
-const { getUsers, createUser, deleteUser } = require('../controllers/users.controller');
+const { getUsers,createUser, deleteUser } = require('../controllers/users.controller');
 
 router.route('/')
-  .get(getUsers)
-  .post(createUser)
+    .get(getUsers)
+    .post(createUser);
 
 router.route('/:id')
-  .delete(deleteUser)
+    .delete(deleteUser);
 
-module.exports = router
+module.exports = router;
