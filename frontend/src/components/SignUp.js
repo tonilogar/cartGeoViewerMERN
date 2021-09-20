@@ -13,11 +13,14 @@ export default class SignUp extends Component {
     //Cuando entramos en la dirección http://localhost:4000/api/users 
     //nos muestra con un log los usuarios existentes
     async componentDidMount() {
-        const res = await axios.get('http://localhost:4000/api/users')
-        this.setState({users: res.data})
+       this.getUsers();
         console.log(this.state.users)
     }
 
+    getUsers = async () => {
+        const res = await axios.get('http://localhost:4000/api/users')
+        this.setState({users: res.data})
+    }
     onChangeUsername = (e) => {
         this.setState({
             username: e.target.value
@@ -30,6 +33,8 @@ export default class SignUp extends Component {
        const res = await axios.post('http://localhost:4000/api/users', {
            username: this.state.username
         })
+        this.setState({username: ''});
+        this.getUsers();
        console.log(res )
     }
     render() {
@@ -37,7 +42,7 @@ export default class SignUp extends Component {
             <form className="formSignUp" onSubmit={this.onSubmit}>     
                 <h1> Create your acount </h1>
                 <label className="labelUserName" htmlFor="userName">  User name   </label>
-                <input onChange={this.onChangeUsername} className="inputUserName" type="text" id="userName"/>
+                <input onChange={this.onChangeUsername} className="inputUserName" value={this.state.username} type="text" id="userName"/>
                {/*  <label className="labelPassword" htmlFor="password">  Password  </label>
                 <input onChange={this.onChangeData} className="inputPassword" type="password" placeholder="********" id="password"/>
                 <label className="labelConfirmPassword" htmlFor="confirmPassword">  Confirm password  </label>
