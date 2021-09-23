@@ -16,6 +16,7 @@ notesCtrl.createNote = async (req, res) => {
         author
     });
     await newNote.save();
+    req.flash('success_msg', 'Note added successfully')
     res.json('New Note added');
 };
 
@@ -26,6 +27,7 @@ notesCtrl.getNote = async (req, res) => {
 
 notesCtrl.deleteNote = async (req, res) => {
     await Note.findByIdAndDelete(req.params.id)
+    req.flash('success_msg', 'Note deleted successfully')
     res.json('Note Deleted');
 }
 
@@ -37,6 +39,7 @@ notesCtrl.updateNote = async (req, res) => {
         duration,
         author
     });
+    req.flash('success_msg', 'Note updated successfully')
     res.json('Note Updated');
 }
 

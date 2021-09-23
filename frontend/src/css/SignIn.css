@@ -6,3 +6,8 @@
 .formSignIn a, .formSignIn input, .formSignIn button {
     margin: 5px;
   }
+
+h1 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
