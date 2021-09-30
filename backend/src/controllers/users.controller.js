@@ -17,10 +17,10 @@ userCtrl.getUsers = async (req, res) => {
 userCtrl.createUser = async (req, res) => {
     try {
         const { username } = req.body;
-
         const newUser = new User({ username });
         await newUser.save();
         res.json('User created');
+        req.flash("success_msg", "User created.");
     } catch (e) {
         console.log(e)
         res.json(e.errmsg);

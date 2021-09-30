@@ -6,3 +6,12 @@
 .formSignUp a, .formSignUp input, .formSignUp button {
   margin: 5px;
 }
+
+.message {
+  position: absolute;
+  top: 70px;
+  width: 200px;
+  background-color: brown;
+  z-index: 1000;
+  /* display: none; */
+}
