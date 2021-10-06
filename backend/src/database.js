@@ -1,16 +1,11 @@
 const mongoose = require('mongoose');
 
-const URI = process.env.MONGOOSE_URI
-    ? process.env.MONGOOSE_URI
-    : 'mongodb://localhost/merndatabase';
+const { MONGODB_HOST, MONGODB_DATABASE } = process.env;
+const MONGODB_URI = `mongodb://${MONGODB_HOST}/${MONGODB_DATABASE}`;
 
-mongoose.connect(URI, {
-    useNewUrlParser: true,
-    useCreateIndex: true
-});
-
-const connection = mongoose.connection;
-
-connection.once('open', () => {
-    console.log('Database is connected');
-});
+mongoose.connect(MONGODB_URI, {
+    /* useUnifiedTopology: true,
+    useNewUrlParser: true */
+})
+    .then(db => console.log('Database is connected'))
+    .catch(err => console.log(err))
