@@ -31,6 +31,7 @@ userCtrl.singup = async (req, res) => {
       await newUser.save()
       req.flash("success_msg", "You are registered.")
       res.redirect("/users/signin")
+      /* res.json("usuario creado") */
     }
   }
 }

@@ -3,6 +3,8 @@ const router = Router()
 
 const { singup, signin, logout } = require("../controllers/users.controller")
 
+/* router.route("/")
+.get((req, res) => res.send('Users routes')); */
 
 router.post("/users/signup", singup);
 
