@@ -16,7 +16,7 @@ userCtrl.getUsers = async (req, res) => {
 
 userCtrl.createUser = async (req, res) => {
     try {
-        const { username } = req.body;
+        const { username, email, password, confirm_password } = req.body;
 
         const newUser = new User({ username });
         await newUser.save();
@@ -27,10 +27,10 @@ userCtrl.createUser = async (req, res) => {
     }
 };
 
-userCtrl.deleteUser = async (req, res) => {
+/* userCtrl.deleteUser = async (req, res) => {
     const { id } = req.params;
     await User.findByIdAndDelete(id);
     res.json('User deleted');
-}
+} */
 
 module.exports = userCtrl;
