@@ -1,15 +1,17 @@
-const express =require('express')
-const cors = require('cors')
-const app = express()
+const express = require('express');
+const cors = require('cors');
 
-// Settings
-app.set('port', process.env.PORT || 4000)
+const app = express();
 
-//middlewares
-app.use(cors())
-app.use(express.json())
+// settings
+app.set('port', process.env.PORT || 4000);
 
-// Routes
-app.use('/api/users', require('./routes/users'))
+// middlewares 
+app.use(cors());
+app.use(express.json());
 
-module.exports = app
+// routes
+app.use('/api/notes', require('./routes/notes'));
+app.use('/api/users', require('./routes/users'));
+
+module.exports = app;

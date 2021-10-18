@@ -1,51 +1,36 @@
-const userCtrl = {}
-const passport = require('passport')
+const userCtrl = {};
 
-userCtrl.singup = async (req, res) => {
-  let errors = []
-  const { name, email, password, confirm_password } = req.body;
-  if (password != confirm_password) {
-    errors.push({ text: "Passwords do not match." })
-  }
-  if (password.length < 4) {
-    errors.push({ text: "Passwords must be at least 4 characters." })
-  }
-  if (errors.length > 0) {
-    res.render("users/signup", {
-      errors,
-      name,
-      email,
-      password,
-      confirm_password,
-    })
-  } else {
-    // Look for email coincidence
-    const emailUser = await User.findOne({ email: email });
-    if (emailUser) {
-      req.flash("error_msg", "The Email is already in use.")
-      res.redirect("/users/signup")
-    } else {
-      // Saving a New User
-      const newUser = new User({ name, email, password })
-      newUser.password = await newUser.encryptPassword(password)
-      await newUser.save()
-      req.flash("success_msg", "You are registered.")
-      res.redirect("/users/signin")
-      /* res.json("usuario creado") */
+const User = require('../models/User');
+
+userCtrl.getUsers = async (req, res) => {
+    try {
+        const users = await User.find();
+        res.json(users);
     }
-  }
+    catch (err) {
+        res.status(400).json({
+            error: err
+        });
+    }
+};
+
+userCtrl.createUser = async (req, res) => {
+    try {
+        const { username } = req.body;
+
+        const newUser = new User({ username });
+        await newUser.save();
+        res.json('User created');
+    } catch (e) {
+        console.log(e)
+        res.json(e.errmsg);
+    }
+};
+
+userCtrl.deleteUser = async (req, res) => {
+    const { id } = req.params;
+    await User.findByIdAndDelete(id);
+    res.json('User deleted');
 }
 
-userCtrl.signin = passport.authenticate("local", {
-  successRedirect: "/notes",
-  failureRedirect: "/users/signin",
-  failureFlash: true,
-})
-
-userCtrl.logout = (req, res) => {
-  req.logout()
-  req.flash("success_msg", "You are logged out now.")
-  res.redirect("/users/signin")
-}
-
-module.exports = userCtrl
+module.exports = userCtrl;

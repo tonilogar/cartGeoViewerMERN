@@ -1,15 +1,13 @@
-const { Router } = require('express')
-const router = Router()
+const { Router } = require('express');
+const router = Router();
 
-const { singup, signin, logout } = require("../controllers/users.controller")
+const { getUsers,createUser, deleteUser } = require('../controllers/users.controller');
 
-/* router.route("/")
-.get((req, res) => res.send('Users routes')); */
+router.route('/')
+    .get(getUsers)
+    .post(createUser);
 
-router.post("/users/signup", singup);
+router.route('/:id')
+    .delete(deleteUser);
 
-router.post("/users/signin", signin);
-
-router.get("/users/logout", logout);
-
-module.exports = router
+module.exports = router;

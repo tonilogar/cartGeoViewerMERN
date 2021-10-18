@@ -11,7 +11,7 @@ import Layers from './components/Layers'
 import SignIn from './components/SignIn'
 import ForgotPass from './components/ForgotPass'
 import SignUp from './components/SignUp'
-//import Message from './components/Message'
+/* import Fondo from './components/Fondo' */
 
 
 
@@ -27,7 +27,7 @@ const App = () => (
     <CatchCoordinates/>
     <Coordinates/> */}
     
-    {/* <Message palabra = "palabra" /> */}
+    {/* <Fondo palabra = "palabra" /> */}
     <Route exact path="/" component={Map}/>
     <Route exact path="/" component={Tools}/>
     <Route exact path="/" component={User}/>

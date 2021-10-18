@@ -28,51 +28,34 @@ export default class SignUp extends Component {
 
         console.log(e.target.value)
     }
-    onChangeEmail = (e) => {
-        this.setState({
-            username: e.target.value
-        });
-
-        console.log(e.target.value)
-    }
     onSubmit = async e => {
         e.preventDefault();
-        const res = await axios.post('http://localhost:4000/api/users', {
+       const res = await axios.post('http://localhost:4000/api/users', {
            username: this.state.username
         })
         this.setState({username: ''});
         this.getUsers();
-        console.log(res )
-    }
-    handleClick = (e) => {
-       console.log("Button was clicked")
-       document.getElementById("message").style.display = "none";
+       console.log(res )
     }
     render() {
-        const messageOk = 'todo bien'
-        const messageError = 'todo mal'
         return (
-            <form className="formSignUp" onSubmit={this.onSubmit}>  
-            <div className = "message" id = "message">
-            <span id = "message" >{messageOk}</span>
-                <span>X</span>   
-            </div>   
+            <form className="formSignUp" onSubmit={this.onSubmit}>     
                 <h1> Create your acount </h1>
                 <label className="labelUserName" htmlFor="userName">  User name   </label>
                 <input onChange={this.onChangeUsername} className="inputUserName" value={this.state.username} type="text" id="userName"/>
-                <label className="labelPassword" htmlFor="password">  Password  </label>
+               {/*  <label className="labelPassword" htmlFor="password">  Password  </label>
                 <input onChange={this.onChangeData} className="inputPassword" type="password" placeholder="********" id="password"/>
                 <label className="labelConfirmPassword" htmlFor="confirmPassword">  Confirm password  </label>
                 <input onChange={this.onChangeData} className="inputConfirmPassword" type="password" placeholder="********" id="confirmPassword"/>
                 <label className="labelEmail" htmlFor="email">  Email   </label>
-                <input onChange={this.onChangeEmail} className="inputEmail" type="email" id="email"/>
-                <input className="buttonCreateUser" onClick={this.handleClick} type="submit" value="Create user"/>
-                <button className="buttonHome" type="button"><Link to="/">Home</Link></button>
+                <input onChange={this.onChangeData} className="inputEmail" type="email" id="email"/>*/}
+                <input onChange={this.onSubmit} className="buttonCreateUser" type="submit" value="Create user"/>
+                {/* <button className="buttonHome"  type="button"><Link to="/">Home</Link></button>
                 <footer className="footer">
                     <Link to='/'>Terms</Link>
                     <Link to='/'>Privacy</Link>
                     <Link to='/'>helpt</Link>
-                </footer> 
+                </footer>  */}
             </form>
         )
     }
