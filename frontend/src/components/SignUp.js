@@ -18,8 +18,8 @@ export default class SignUp extends Component {
     }
 
     getUsers = async () => {
-        /* const res = await axios.get('http://localhost:4000/api/users') */
-        const res = await axios.get('http://localhost:${PORTBACKEND}/api/users')
+        const res = await axios.get('http://localhost:4000/api/users')
+        
         this.setState({users: res.data})
     }
     onChangeUsername = (e) => {
