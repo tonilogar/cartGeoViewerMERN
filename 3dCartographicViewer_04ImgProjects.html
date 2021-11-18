@@ -1,0 +1,576 @@
+<html style=""><head>
+  <meta charset="UTF-8">
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/semantic.min.js"></script>
+  <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.js"></script>
+  <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.css" rel="stylesheet">    
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/semantic.min.css">
+  
+<style>
+body { margin:0; padding:0; }
+#map { position:absolute; top:0; bottom:0; width:100%; }
+.control-zoom{float:left;}
+.map-overlay {
+  position: absolute;
+  bottom: 40px;
+  right: 0;
+  background: rgba(34, 32, 32, 0.74);
+  margin-right: 20px;
+  font-family: Arial, sans-serif;
+  overflow: auto;
+  border-radius: 3px;
+}
+.buttonlegend {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: rgba(34, 32, 32, 0.74);
+  margin-right: 20px;
+  font-family: Arial, sans-serif;
+  overflow: auto;
+  border-radius: 3px;
+}
+.geocoder {
+  position: absolute;
+  top: 12px;
+  right:30px ;
+  background: rgba(34, 32, 32, 0.74);
+  margin-right: 20px;
+  font-family: Arial, sans-serif;
+  overflow: auto;
+ 
+}
+.layers {
+  position: absolute;
+  top: 10px;
+  right:250px ;
+  background: rgba(34, 32, 32, 0.74);
+  margin-right: 20px;
+  font-family: Arial, sans-serif;
+  
+ 
+}.tipus_mapa {
+  position: absolute;
+  top: 10px;
+  right:372px ;
+  background: rgba(34, 32, 32, 0.74);
+  margin-right: 20px;
+  font-family: Arial, sans-serif;
+  
+ 
+}
+.mapboxgl-popup {
+  max-width: 400px;
+  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  }
+
+#legend {
+ 
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.952);
+  line-height: 18px;
+  margin-bottom: 40px;
+  /*height: 220px;
+  width: 125px;*/
+}
+#legenda {
+ 
+ box-shadow: 0 1px 2px rgba(0, 0, 0, 0.952);
+ line-height: 18px;
+ margin-bottom: 40px;
+ visibility: hidden;
+ /*height: 220px;
+ width: 125px;*/
+}
+
+#menu {
+  position: absolute;
+  margin-right:18%;
+  background: rgba(0, 0, 0, 0.952);
+  padding: 10px;
+  font-family: 'Arial', sans-serif; 
+  color: black;
+  visibility: hidden;
+          } 
+
+#img-llegenda{
+  width: 226px;
+  background-color: #ffffff;
+}
+#img-esquema{
+  width: 226px;
+  background-color: #ffffff;
+}
+#img-any{
+  width: 226px;
+  background-color: #ffffff;
+float:right; 
+text-align:right;
+font-weight: bold;
+}
+.results{
+  background-color: #ffffff;
+}
+.buttontitol{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.952);
+  margin-left: 5px;
+  font-family: Arial, sans-serif;
+  overflow: auto;
+  border-radius: 3px;
+}
+#titol { 
+ box-shadow: 0 1px 2px rgba(0, 0, 0, 0.952);
+top: 10px;
+ left:5px ;
+background-color: #ffffff;
+ line-height: 18px;
+ height: 45px;
+ width: 500px;
+}
+#img-titol{
+box-shadow: 0 1px 2px rgba(0, 0, 0, 0.952);
+  height:45px;
+  background-color: #ffffff;
+}
+.buttoni{
+  position: absolute;
+  top: 20;
+  left: 518;
+  background: rgba(0, 0, 0, 0.952);
+  font-family: Arial, sans-serif;
+  border-radius: 3px;
+}
+#info { 
+ box-shadow: 0 1px 2px rgba(0, 0, 0, 0.952);
+top: 20px;
+ left:518px ;
+background-color: #ffffff;
+ line-height: 18px;
+ height: 35px;
+ width: 67px;
+}
+#img-info{
+ box-shadow: 0 1px 2px rgba(0, 0, 0, 0.952);
+height:35px;
+  background-color: #ffffff;
+}
+.map-overlayi {
+  position: absolute;
+  top: 60px;
+ left: 0;
+  background: rgba(34, 32, 32, 0.74);
+  margin-right: 20px;
+  font-family: Arial, sans-serif;
+  overflow: auto;
+  border-radius: 3px;
+}
+#legendai {
+ box-shadow: 0 1px 2px rgba(0, 0, 0, 0.952);
+ line-height: 18px;
+ margin-bottom: 40px;
+ visibility: hidden;
+ /*height: 220px;
+ width: 125px;*/
+}
+#img-esquemai{
+box-shadow: 0 1px 2px rgba(0, 0, 0, 0.952);
+  width: 600px;
+  background-color: #ffffff;
+}
+
+</style>
+</head>
+<body>
+
+
+<div id="map" class="mapboxgl-map"><div class="mapboxgl-missing-css">Missing Mapbox GL JS CSS</div><div class="mapboxgl-canvas-container mapboxgl-interactive mapboxgl-touch-drag-pan mapboxgl-touch-zoom-rotate"><canvas class="mapboxgl-canvas" tabindex="0" aria-label="Map" width="518" height="976" style="position: absolute; width: 518px; height: 976px;"></canvas></div><div class="mapboxgl-control-container"><div class="mapboxgl-ctrl-top-left"></div><div class="mapboxgl-ctrl-top-right"><div class="mapboxgl-ctrl mapboxgl-ctrl-group"><button class="mapboxgl-ctrl-icon mapboxgl-ctrl-zoom-in" type="button" aria-label="Zoom In"></button><button class="mapboxgl-ctrl-icon mapboxgl-ctrl-zoom-out" type="button" aria-label="Zoom Out"></button><button class="mapboxgl-ctrl-icon mapboxgl-ctrl-compass" type="button" aria-label="Reset North"><span class="mapboxgl-ctrl-compass-arrow" style="transform: rotate(0deg);"></span></button></div></div><div class="mapboxgl-ctrl-bottom-left"><div class="mapboxgl-ctrl mapboxgl-ctrl-scale" style="width: 74.79px;">500m</div><div class="mapboxgl-ctrl" style="display: none;"><a class="mapboxgl-ctrl-logo" target="_blank" href="https://www.mapbox.com/" aria-label="Mapbox logo"></a></div></div><div class="mapboxgl-ctrl-bottom-right"><div class="mapboxgl-ctrl mapboxgl-ctrl-attrib mapboxgl-compact"><a href="https://www.icgc.cat/" target="_blank"> Institut Cartogràfic i Geològic de Catalunya</a> <a href="http://www.openmaptiles.org/" target="_blank">© OpenMapTiles</a> <a href="http://www.openstreetmap.org/about/" target="_blank">© OpenStreetMap contributors</a></div></div></div><div class="mapboxgl-popup mapboxgl-popup-anchor-right" style="transform: translate(-100%, -50%) translate(498px, 384px);"><div class="mapboxgl-popup-tip"></div><div class="mapboxgl-popup-content"><button class="mapboxgl-popup-close-button" type="button" aria-label="Close popup">×</button>Velocitat: 2.16 mm/any <br>Data inici: 20160101<br>Data final: 20161226<br>Desplaçament interval: 1.25 mm</div></div></div>
+
+
+<div class="layers" id="legend">
+  <div class="ui compact menu">
+      <i class=" big bars icon"></i> <!-- Icono de capas -->
+      <div class="ui simple dropdown item"> Projects
+                <div class="menu">
+                <div class="item"> 2016
+          
+          <div class="right menu">
+            <div class="item itemlayer" data-layer="cat_s1_los_a_2016" data-source="cat_s1_los_a_2016">LOS Ascendent</div>
+            <div class="item itemlayer" data-layer="cat_s1_los_d_2016" data-source="cat_s1_los_d_2016">LOS Descendent</div>
+            <div class="item itemlayer" data-layer="cat_s1_ud_2016" data-source="cat_s1_ud_2016">Vertical</div>
+            <div class="item itemlayer" data-layer="cat_s1_ew_2016" data-source="cat_s1_ew_2016">Horitzontal (Est-Oest)</div>
+          </div>
+      </div>
+      <div class="item">2017
+        
+        <div class="right menu">
+          <div class="item itemlayer" data-layer="cat_s1_los_a_2017" data-source="cat_s1_los_a_2017">LOS Ascendent</div>
+          <div class="item itemlayer" data-layer="cat_s1_los_d_2017" data-source="cat_s1_los_d_2017">LOS Descendent</div>
+          <div class="item itemlayer" data-layer="cat_s1_ud_2017" data-source="cat_s1_ud_2017">Vertical</div>
+          <div class="item itemlayer" data-layer="cat_s1_ew_2017" data-source="cat_s1_ew_2017">Horitzontal (Est-Oest)</div>
+        </div>
+      </div>
+      <div class="item">2018
+        
+        <div class="right menu">
+          <div class="item itemlayer" data-layer="cat_s1_los_a_2018" data-source="cat_s1_los_a_2018">LOS Ascendent</div>
+          <div class="item itemlayer" data-layer="cat_s1_los_d_2018" data-source="cat_s1_los_d_2018">LOS Descendent</div>
+          <div class="item itemlayer" data-layer="cat_s1_ud_2018" data-source="cat_s1_ud_2018">Vertical</div>
+          <div class="item itemlayer" data-layer="cat_s1_ew_2018" data-source="cat_s1_ew_2018">Horitzontal (Est-Oest)</div>
+        </div>
+      </div>
+      <div class="item">2019
+        
+        <div class="right menu">
+          <div class="item itemlayer" data-layer="cat_s1_los_a_2019" data-source="cat_s1_los_a_2019">LOS Ascendent</div>
+          <div class="item itemlayer" data-layer="cat_s1_los_d_2019" data-source="cat_s1_los_d_2019">LOS Descendent</div>
+          <div class="item itemlayer" data-layer="cat_s1_ud_2019" data-source="cat_s1_ud_2019">Vertical</div>
+          <div class="item itemlayer" data-layer="cat_s1_ew_2019" data-source="cat_s1_ew_2019">Horitzontal (Est-Oest)</div>
+        </div>
+      </div>
+        <div class="item">2020
+        
+        <div class="right menu">
+          <div class="item itemlayer" data-layer="CAT_S1_LOS_A_201912_202012" data-source="cat_s1_los_a_2020">LOS Ascendent</div>
+          <div class="item itemlayer" data-layer="CAT_S1_LOS_D_201912_202012" data-source="cat_s1_los_d_2020">LOS Descendent</div>
+          <div class="item itemlayer" data-layer="CAT_S1_UD_201912_202012" data-source="cat_s1_ud_2020">Vertical</div>
+          <div class="item itemlayer" data-layer="CAT_S1_EW_201912_202012" data-source="cat_s1_ew_2020">Horitzontal (Est-Oest)</div>
+        </div>
+      </div>
+       
+                </div>
+              </div>
+  </div>
+</div>
+
+
+
+<script>
+  
+  var bases = {
+      topo: 'https://geoserveis.icgc.cat/contextmaps/icgc.json',
+      orto: 'https://tilemaps.icgc.cat/tileserver/styles/orto.json',
+      clar: 'https://tilemaps.icgc.cat/tileserver/styles/positron.json',
+      fosc: 'https://geoserveis.icgc.cat/contextmaps/fulldark.json'
+//geol: 'http://b.tilemaps.icgc.cat/mapfactory/wmts/relleu/CAT3857/{z}/{x}/{y}.png'
+  }
+   
+  var layerActivo = {};
+
+  var capas={
+  "version": 8,
+  "name": "Mapbox Satellite",
+  "metadata": {
+      "mapbox:autocomposite": true,
+      "mapbox:type": "default"
+  },
+  "sources": {
+"cat_s1_ud_2016": {
+          "type": "vector",
+          "url": "http://172.20.70.24:8080/data/cat_s1_ud_2016.json"
+          },
+      "cat_s1_ew_2016": {
+          "type": "vector",
+          "url": "http://172.20.70.24:8080/data/cat_s1_ew_2016.json"
+          },
+      "cat_s1_los_d_2016": {
+          "type": "vector",
+          "url": "http://172.20.70.24:8080/data/cat_s1_los_d_2016.json"
+          },
+      "cat_s1_los_a_2016": {
+          "type": "vector",
+          "url": "http://172.20.70.24:8080/data/cat_s1_los_a_2016.json"
+          },                
+      "cat_s1_los_a_2017": {
+          "type": "vector",
+          "url": "http://172.20.70.24:8080/data/cat_s1_los_a_2017.json"
+          },
+      "cat_s1_los_d_2017": {
+          "type": "vector",
+          "url": "http://172.20.70.24:8080/data/cat_s1_los_d_2017.json"
+          },
+      "cat_s1_ew_2017": {
+          "type": "vector",
+          "url": "http://172.20.70.24:8080/data/cat_s1_ew_2017.json"
+          },
+      "cat_s1_ud_2017": {
+          "type": "vector",
+          "url": "http://172.20.70.24:8080/data/cat_s1_ud_2017.json"
+          },
+"cat_s1_los_a_2018": {
+          "type": "vector",
+          "url": "http://172.20.70.24:8080/data/cat_s1_los_a_2018.json"
+          },
+"cat_s1_los_d_2018": {
+          "type": "vector",
+          "url": "http://172.20.70.24:8080/data/cat_s1_los_d_2018.json"
+          },
+      "cat_s1_ew_2018": {
+          "type": "vector",
+          "url": "http://172.20.70.24:8080/data/cat_s1_ew_2018.json"
+},
+"cat_s1_ud_2018": {
+          "type": "vector",
+          "url": "http://172.20.70.24:8080/data/cat_s1_ud_2018.json"
+          },
+"cat_s1_los_a_2019": {
+          "type": "vector",
+          "url": "http://172.20.70.24:8080/data/cat_s1_los_a_2019.json"
+          },
+"cat_s1_los_d_2019": {
+          "type": "vector",
+          "url": "http://172.20.70.24:8080/data/cat_s1_los_d_2019.json"
+          },
+      "cat_s1_ew_2019": {
+          "type": "vector",
+          "url": "http://172.20.70.24:8080/data/cat_s1_ew_2019.json"
+},
+"cat_s1_ud_2019": {
+          "type": "vector",
+          "url": "http://172.20.70.24:8080/data/cat_s1_ud_2019.json"
+          },
+"cat_s1_los_a_2020": {
+          "type": "vector",
+          "url": "http://172.20.70.24:8080/data/cat_s1_los_a_2020.json"
+          },
+"cat_s1_los_d_2020": {
+          "type": "vector",
+          "url": "http://172.20.70.24:8080/data/cat_s1_los_d_2020.json"
+          },
+      "cat_s1_ew_2020": {
+          "type": "vector",
+          "url": "http://172.20.70.24:8080/data/cat_s1_ew_2020.json"
+},
+"cat_s1_ud_2020": {
+          "type": "vector",
+          "url": "http://172.20.70.24:8080/data/cat_s1_ud_2020.json"
+          },	
+  },
+  "sprite": "mapbox://sprites/mapbox/satellite-v9",
+  "glyphs": "mapbox://fonts/mapbox/{fontstack}/{range}.pbf",
+  "layers": [
+      {
+      "id": "EXoutputE",
+      "type": "circle",
+      "source": "ejemplo1",
+      "source-layer": "puntspcotmerge",
+      'paint': {
+          // make circles larger as the user zooms from z12 to z22
+          'circle-radius': {
+              'base': 1.75,
+              'stops': [[8, 0.5],[12, 2], [22, 180]]
+                  },
+          'circle-color': {
+              property: 'VEL',
+              stops: [
+              [-15, '#e31a1c'],
+              [-12, '#ee7510'],
+              [-9, '#f9d104'],
+              [-6, '#f7f904'],
+              [-3, '#b1ffa0'],
+              [3, '#04ff00'],
+              [6, '#00ffcb'],
+              [9, '#00d2fc'],
+              [12, '#0079f7'],
+              [15, '#0020f3'],
+              ]}
+          }
+      },
+      ]
+  };
+  
+  //mapboxgl.accessToken = 'pk.eyJ1Ijoia2V2aW45MiIsImEiOiJjamdkZTlnYTMzb20wMnFvaGw5cnVjdWZ3In0.3tKqzReq4iTrNIVrLyCyYA';
+  var map = new mapboxgl.Map({
+      container: 'map',
+      //style: 'mapbox://styles/mapbox/satellite-v9',
+      style: bases.fosc,
+      center: [2.6360, 41.7447],
+hash: true,
+      zoom: 8
+  });
+  map.addControl (new mapboxgl.NavigationControl());
+
+  map.on('style.load', function() {
+      switchCapa(layerActivo);
+  });
+
+  map.on('click', 'EXoutputE', function (e) {
+      var coordinates = e.features[0].geometry.coordinates.slice();
+      var description = e.features[0].properties.VEL;
+var descriptiondatai = e.features[0].properties.data_inici;
+var descriptiondataf = e.features[0].properties.data_fi;
+var descriptionmov = e.features[0].properties.mov_acum;
+
+      // Ensure that if the map is zoomed out such that multiple
+      // copies of the feature are visible, the popup appears
+      // over the copy being pointed to.
+      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+          coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      }
+
+      new mapboxgl.Popup()
+          .setLngLat(coordinates)
+          .setHTML("Velocitat: "+description+" mm/any "+'<br>'+
+      "Data inici: "+descriptiondatai +'<br>'+
+      "Data final: "+descriptiondataf +'<br>'+
+      "Desplaçament interval: "+descriptionmov+" mm"
+      )
+          .addTo(map);
+  });
+
+  // Change the cursor to a pointer when the mouse is over the places layer.
+  map.on('mouseenter', 'EXoutputE', function () {
+      map.getCanvas().style.cursor = 'pointer';
+  });
+
+  // Change it back to a pointer when it leaves.
+  map.on('mouseleave', 'EXoutputE', function () {
+      map.getCanvas().style.cursor = '';
+  });
+  var scale = new mapboxgl.ScaleControl({
+      maxWidth: 80,
+      unit: 'imperial'
+  });
+  map.addControl(scale);
+  scale.setUnit('metric');
+</script>
+
+<script type="text/javascript">
+  
+  
+  $('div.fons').on('click',function(){
+      switchMapa($(this).find('label.fons').prop('for'));
+  });
+  
+  function switchMapa(layerId) {
+      console.log(layerId);
+      map.setStyle(bases[layerId]);
+  }
+
+  $('.buttonlegend > button').click(function() {
+      $('.map-overlay').click()
+          .transition('slide left')
+          ;
+  });
+$('.buttoni > button').click(function() {
+      $('.map-overlayi').click()
+          .transition('slide down')
+          ;
+  });
+  
+  $('.itemlayer').on('click', function(){
+      switchCapa({layer: $(this).data("layer"), source: $(this).data("source")});
+  });
+
+  function switchCapa(options){
+      for (var i = 0; i < capas.layers.length; i++) 
+      {
+          var me = capas.layers[i];
+          if(map.getLayer(me.id)){
+              map.removeLayer(me.id);
+          }
+      }
+      
+      if (jQuery.isEmptyObject(options)){
+          layerActivo = {};
+      }else{
+          var layer = options.layer;
+          var source = options.source;
+          
+          console.log(layer);
+          console.log(source);
+          
+          layerActivo = {
+              layer: layer,
+              source: source
+          };
+
+          if(!map.getSource(source)){
+              map.addSource(source, capas.sources[source]);
+          }
+
+          for (var i = 0; i < capas.layers.length; i++) 
+          {
+              var me = capas.layers[i];
+              console.log(me);
+              me.source = source;
+              me["source-layer"] = layer;
+              map.addLayer(me);
+          }
+
+$('#img-esquema').attr("src","images/"+ source+".png", "width", "120px");
+
+/*	
+//VARIABLE PER CANVIAR DE IMATGE MITJANÇANT EL NOM DEL SOURCE FINS L'ULTIM _
+var img_name = source.substring(0,source.lastIndexOf("_"));
+          $('#img-esquema').attr("src","images/"+ img_name+".png", "width", "120px");
+
+//VARIABLE PER OBSERVAR ELS 5 ÚLTIMS COMPONENTS DEL SOURCE (ANY)
+var text_any = source.substr(-5);
+$('#img-any').text(text_any);
+*/
+      }
+      
+  }
+
+ $('.geocoder')
+      .search({
+          apiSettings: {
+          url: 'https://betaserver.icgc.cat/icgc_geocoder/?maxresultats=17&obtenirCoordGeografiques=si&tipus=Cap%20de%20Municipi&metode=localitzaToponim&ordre=alfabetic&trobaTots=no&nom={query}',
+          onResponse: function(icgcResponse) {
+              var response = {results : []};
+              console.log(icgcResponse);
+              $.each(icgcResponse, function(index, item) {
+                  response.results.push({
+                      title: item.nom,
+                      description: "(" + item.nomMunicipi + ")",
+                      x: item.coordenadesLonLat.x,
+                      y: item.coordenadesLonLat.y 
+                  });                        
+              });
+              /*
+              // translate GitHub API response to work with search
+              $.each(githubResponse.items, function(index, item) {
+              var
+                  language   = item.language || 'Unknown',
+                  maxResults = 8
+              ;
+              if(index >= maxResults) {
+                  return false;
+              }
+              // create new language category
+              if(response.results[language] === undefined) {
+                  response.results[language] = {
+                  name    : language,
+                  results : []
+                  };
+              }
+              // add result to category
+              response.results[language].results.push({
+                  title       : item.name,
+                  description : item.description,
+                  url         : item.html_url
+              });
+              });
+              */
+              return response;
+          }
+          },
+          minCharacters : 3,
+maxResults: 20,
+          onSelect: function(result, response){
+              console.log(result);
+              console.log(response);
+              map.jumpTo({
+                  center: new mapboxgl.LngLat(result.x, result.y),
+                  zoom: 16.50
+              });
+          }
+      });
+      
+     
+</script>                
+          
+
+</body></html>

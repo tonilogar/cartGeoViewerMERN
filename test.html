@@ -1,0 +1,59 @@
+
+<html lang="en">
+  
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #contextMenu {
+    position:absolute;
+    width:150px;
+    height:160px;
+    display:none; 
+    padding-left: 15px;
+    padding-top: 10px;
+    color: white;
+    background-color: #2a2a2a;
+    z-index: 500;
+    }
+    #contextMenu span {
+      cursor:pointer;
+    }
+    #closeContextualWindow {    
+      padding-right: 10px;
+    }
+    #closeContextualWindow span{
+      cursor:pointer;
+      background-color: #ff0000;
+      float: right;
+    }
+    #contextMenu a span {
+      color: white;
+      background-color: #444343;
+    }
+  </style>
+</head>
+<body>
+  <div id="contextMenu" > <!-- onclick="this.style.display='none'" -->
+    <div id="closeContextualWindow" onclick="closeContextualMenu()"><span> X </span></div>
+    <span > Copy coordinates</span>
+  </div>
+  <script>
+    function closeContextualMenu() {document.getElementById("contextMenu").style.display = "none"}
+    
+    const showContextMenu = (e)=> {
+      console.log(e.clientX + " e.clientX " + e.clientY + " e.clientY")
+      const contextMenu=document.getElementById("contextMenu");
+      contextMenu.style.transform = e.clientX;
+      contextMenu.style.transform = e.clientY;
+      /* document.getElementById("contextMenu").style.left=e.clientX */
+      contextMenu.style.display="block"; 
+      return false
+    }
+    document.oncontextmenu=showContextMenu;
+    
+  </script>
+</body>
+</html>

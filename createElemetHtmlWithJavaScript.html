@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function init() {
+ 
+      let ul = document.createElement("ul");
+ 
+
+      let li1 = document.createElement("li");
+      let li1Texto = document.createTextNode("Elemento  1");     
+      li1.appendChild(li1Texto);
+      let div1 = document.createElement("div");
+      let input1 = document.createElement("input");
+      input1.setAttribute("list","pepe");
+     
+      let dataList1 = document.createElement("datalist");
+      dataList1.setAttribute("id","pepe");
+      div1.appendChild(input1);
+      div1.appendChild(dataList1);
+      let option1 = document.createElement("option");
+      let option2 = document.createElement("option");
+      let option3 = document.createElement("option");
+      let option4 = document.createElement("option");
+      option1.textContent = "2016";
+      option2.textContent = "2017";
+      option3.textContent = "2018";
+      option4.textContent = "2019";
+      dataList1.appendChild(option1);
+      dataList1.appendChild(option2);
+      dataList1.appendChild(option3);
+      dataList1.appendChild(option4);
+
+  
+      let li2 = document.createElement("li");
+      let li2Texto = document.createTextNode("Elemento 2");
+      li2.appendChild(li2Texto);
+  
+      let li3 = document.createElement("li");
+      let li3Texto = document.createTextNode("Elemento 3");
+      li3.appendChild(li3Texto);
+
+      ul.appendChild(li1);
+      ul.appendChild(div1);
+      ul.appendChild(li2);
+      ul.appendChild(li3);
+
+ 
+
+      document.body.appendChild(ul);
+    }
+
+
+window.onload = init;
+  </script>
+  
+</body>
+</html>
