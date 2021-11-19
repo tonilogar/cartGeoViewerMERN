@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import '../css/SignUp.css'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
-export default class SignUp extends Component {
+class SignUp extends Component {
     
     state = {
         users: [],
@@ -65,3 +65,5 @@ export default class SignUp extends Component {
         )
     }
 }
+
+export { SignUp } 

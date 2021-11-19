@@ -1,11 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react';
 import "../css/Fondo.css";
-export default class Fondo extends Component {
-    render() {
+
+function  Fondo(props) {
         return (
             <div className = "fondo">
-                {this.props.palabra}
+                {props.children}
             </div>
         )
-    }
 }
+
+export { Fondo };

@@ -1,11 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react';
 import '../css/User.css'
 import {Link} from 'react-router-dom'
 
-export default class User extends Component {
-  render() {
-    return (
-      <div className="user">
+function User() {
+  return (
+    <div className="user">
       <svg  viewBox="0 0 650 650">
       <circle
         cx="313.65"
@@ -17,8 +16,8 @@ export default class User extends Component {
         strokeLinecap="square"
         strokeLinejoin="round"
         strokeWidth="40"
-        paintOrder="markers fill stroke"
-      ></circle>
+        paintOrder="markers fill stroke">
+      </circle>
       <ellipse
         cx="320.3"
         cy="592.76"
@@ -30,18 +29,18 @@ export default class User extends Component {
         strokeWidth="45.481"
         paintOrder="markers fill stroke"
         rx="192.43"
-        ry="232.06"
-      ></ellipse>
-    </svg>
-    <ul className="userUl">
-      <li><Link to="/SignUp">Sign up</Link></li>
-      <li><Link to="/">Sign out</Link></li>
-      <li><Link to="/SignIn">Sign in</Link></li>
-    </ul>
+        ry="232.06">
+      </ellipse>
+      </svg>
+      <ul className="userUl">
+        <li><Link to="/SignUp">Sign up</Link></li>
+        <li><Link to="/">Sign out</Link></li>
+        <li><Link to="/SignIn">Sign in</Link></li>
+      </ul>
     </div>
-    )
-  }
+  )
 }
 
+export { User };
 
 

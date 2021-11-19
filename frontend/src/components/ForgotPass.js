@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../css/ForgotPass.css";
 import { Link } from "react-router-dom";
+
 export default class ForgotPass extends Component {
   render() {
     return (
