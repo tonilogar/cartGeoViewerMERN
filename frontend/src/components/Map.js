@@ -6,7 +6,7 @@ import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 
 mapboxgl.accessToken = "pk.eyJ1IjoidG9uaWxvZ2FyIiwiYSI6ImNqYjZlamY1dzBtMXEzM3FxbmppeXBpeHoifQ.DbzKh1wtO4p4QOUjj9eg1w";
 
-const Map = () => {
+function Map() {
   let coordinatesGeocoder = function (query) {
     // match anything which looks like a decimal degrees coordinate pair
     let matches = query.match(
@@ -149,4 +149,4 @@ const Map = () => {
 };
 
 
-export default Map;
+export { Map };

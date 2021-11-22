@@ -1,6 +1,7 @@
+import React from 'react';
 import '../css/Info.css'
 
-const Info = () => {
+function Info() {
   return (
   <abbr title="Information about de project">
     <svg className="info" viewBox="0 0 650 650">
@@ -18,6 +19,6 @@ const Info = () => {
     </svg>
   </abbr>
   )
-};
+}
 
-export default Info;
+export { Info }

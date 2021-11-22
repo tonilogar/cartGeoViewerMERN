@@ -2,11 +2,11 @@ import React from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './css/App.css'
-import Map from './components/Map';
+import { Map } from './components/Map';
 import { Tools } from './components/Tools';
 import { User } from './components/User';
 import { Perspective } from './components/Perspective'
-import Info from './components/Info'
+import { Info } from './components/Info'
 import Layers from './components/Layers'
 import SignIn from './components/SignIn'
 import ForgotPass from './components/ForgotPass'
