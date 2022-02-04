@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../css/SignUp.css'
+import './SignUp.css'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 class SignUp extends Component {

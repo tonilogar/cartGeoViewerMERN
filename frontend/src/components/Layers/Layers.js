@@ -1,4 +1,5 @@
-import '../css/Layers.css'
+import React from 'react';
+import './Layers.css'
 
 const Layers = ()=> (
  

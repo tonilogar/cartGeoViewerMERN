@@ -1,5 +1,5 @@
 import React from 'react'
-import '../css/Perspective.css'
+import './Perspective.css'
 function Perspective() {
   const onClickButton = (msg) => {
     alert(msg);

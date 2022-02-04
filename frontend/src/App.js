@@ -2,15 +2,15 @@ import React from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './css/App.css'
-import { Map } from './components/Map';
-import { Tools } from './components/Tools';
-import { User } from './components/User';
-import { Perspective } from './components/Perspective'
-import { Info } from './components/Info'
-import Layers from './components/Layers'
-import SignIn from './components/SignIn'
-import ForgotPass from './components/ForgotPass'
-import { SignUp } from './components/SignUp'
+import { Map } from './components/Map/Map';
+import { Tools } from './components/Tools/Tools';
+import { User } from './components/User/User';
+import { Perspective } from './components/Perspective/Perspective'
+import { Info } from './components/Info/Info'
+import Layers from './components/Layers/Layers'
+import SignIn from './components/SignIn/SignIn'
+import ForgotPass from './components/ForgotPass/ForgotPass'
+import { SignUp } from './components/SignUp/SignUp'
 import { Props } from './components/Props' 
 import { Children } from './components/Children' 
 

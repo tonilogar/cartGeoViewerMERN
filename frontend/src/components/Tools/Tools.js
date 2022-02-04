@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/Tools.css'
+import './Tools.css'
 
 function Tools() {
   return (
