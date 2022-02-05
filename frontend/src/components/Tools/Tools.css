@@ -1,13 +1,17 @@
-.tools--MenuOpen, .tools--MenuClose {
+.containerTools {
   position: absolute;
-  top: 5px;
+  top: 6px;
   left: 5px;
+  width: 30px;
+  height: 30px;
+  background-color:var(--backgroundButtons);
 }
-.tools--MenuClose {
+
+.toolsOpen:hover, .toolsClose:hover  {
+  background-color:var(--colorTextSoftGrey); 
+  cursor: pointer;
+}
+
+.toolsClose {
   display: none;
-}
-.tools--Projects {
-  position: absolute;
-  top: 40px;
-  left: 5px;
 }

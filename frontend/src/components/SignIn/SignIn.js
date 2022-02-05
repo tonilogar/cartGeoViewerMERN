@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import "./SignIn.css";
 import { Link } from "react-router-dom";
-export default class SignIn extends Component {
+
+class SignIn extends Component {
   handleChange = (e) => {
     console.log({value: e.target.value})
   }
@@ -33,4 +34,4 @@ export default class SignIn extends Component {
   }
 }
 
-
+export { SignIn } 

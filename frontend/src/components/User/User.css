@@ -2,14 +2,17 @@
   position: absolute;
   top: 6px;
   right: 250px;
-  margin: 0px;
-  padding: 0px;
+  width: 30px;
   height: 50px;
-  /* width: 100px; */
-  display: grid;
-  justify-items: start;
 }
-
+.userSvg {
+  width: 30px;
+  height: 30px;
+}
+.userSvg:hover  {
+  background-color:var(--colorTextSoftGrey); 
+  cursor: pointer;
+}
 
 .userUl {
   display: none;

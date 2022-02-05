@@ -1,8 +1,16 @@
-.perspective_2d_3d, .perspective_3d_2d {
+.containerPerspective {
   position: absolute;
-  top:253px;
+  top:254px;
   right: 5px;
+  width: 30px;
+  height: 30px;
+  background-color:var(--backgroundButtons);
 }
-.perspective_2d_3d {
+.view_3D:hover, .view_2D:hover  {
+  background-color:var(--colorTextSoftGrey); 
+  cursor: pointer;
+}
+
+.view_2D {
   display: none;
 }

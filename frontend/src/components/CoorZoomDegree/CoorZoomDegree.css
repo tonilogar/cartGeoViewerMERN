@@ -1,0 +1,11 @@
+.sidebarStyle {
+  display: inline-block;
+  position: absolute;
+  bottom: 3px;
+  right: 5px;
+  margin-bottom: 2px;
+  background-color: white;
+  color: black;
+  padding: 2px;
+  /* font-weight: bold; */
+}

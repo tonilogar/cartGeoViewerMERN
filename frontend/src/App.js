@@ -1,29 +1,32 @@
 import React from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import './css/App.css'
-import { Map } from './components/Map/Map';
-import { Tools } from './components/Tools/Tools';
-import { User } from './components/User/User';
-import { Perspective } from './components/Perspective/Perspective'
-import { Info } from './components/Info/Info'
-import Layers from './components/Layers/Layers'
-import SignIn from './components/SignIn/SignIn'
+import './App.css'
+import { CoorZoomDegree } from "./components/CoorZoomDegree/CoorZoomDegree"
 import ForgotPass from './components/ForgotPass/ForgotPass'
+import { Info } from './components/Info/Info'
+import { Layers } from './components/Layers/Layers'
+import { Map } from './components/Map/Map';
+import { Perspective } from './components/Perspective/Perspective'
+import { SignIn } from './components/SignIn/SignIn'
 import { SignUp } from './components/SignUp/SignUp'
-import { Props } from './components/Props' 
-import { Children } from './components/Children' 
+import { Tools } from './components/Tools/Tools'
+import { User } from './components/User/User'
+
+/* import { Props } from './components/Props' 
+import { Children } from './components/Children'  */
 
 
 
 function App() {
+ 
   return (
     <React.Fragment>
       <Router className = 'App'>
-        <Props palabra = "Props"/>
+        {/* <Props palabra = "Props"/>
         <Children >
           Children
-        </Children> 
+        </Children>  */}
         <Route exact path="/" component={Map}/>
         <Route exact path="/" component={Tools}/>
         <Route exact path="/" component={User}/>

@@ -1,9 +1,8 @@
-import React from 'react';
+import React from 'react'
 import './Info.css'
 
-function Info() {
+const Info = () => {
   return (
-  <abbr title="Information about de project">
     <svg className="info" viewBox="0 0 650 650">
       <path
         strokeWidth="18.215"
@@ -17,7 +16,6 @@ function Info() {
         aria-label="i">
       </path>
     </svg>
-  </abbr>
   )
 }
 

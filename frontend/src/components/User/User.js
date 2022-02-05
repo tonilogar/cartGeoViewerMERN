@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 function User() {
   return (
     <div className="user">
-      <svg  viewBox="0 0 650 650">
+      <svg  className="userSvg" viewBox="0 0 650 650">
       <circle
         cx="313.65"
         cy="176.65"
