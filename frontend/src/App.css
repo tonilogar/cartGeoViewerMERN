@@ -134,3 +134,23 @@ code {
   border-radius: 0px !important;
   margin: 0px !important;
 }
+.catchCoordinates {
+  position: absolute;
+  bottom: 31px;
+  right: 193px;
+  margin-bottom: 2px;
+  color: black;
+  padding: 2px;
+  background-color:var(--backgroundButtons); 
+}
+.copiedCoordinates{
+  position: absolute;
+  bottom: 31px;
+  right: 5px;
+  width: 186px;
+  height: 26px;
+  margin-bottom: 2px;
+  color: black;
+  padding: 2px;
+  background-color:var(--backgroundButtons); 
+}
