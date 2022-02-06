@@ -1,0 +1,10 @@
+.sidebarStyle {
+  position: absolute;
+  bottom: 3px;
+  right: 5px;
+  width: 380px;
+  margin-bottom: 2px;
+  background-color:var(--backgroundButtons); 
+  color: black;
+  padding: 2px;
+}

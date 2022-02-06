@@ -79,41 +79,23 @@
   border-radius: 0px !important;
   margin: 0px !important;
 }
-
 .catchCoordinates {
   position: absolute;
-  bottom: 95px;
-  right: 30px;
-  width: 155px;
-  height: 40px;
+  bottom: 31px;
+  right: 193px;
+  margin-bottom: 2px;
+  color: black;
+  padding: 2px;
   background-color:var(--backgroundButtons); 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-left: 8px; 
 }
 .copiedCoordinates{
   position: absolute;
-  bottom: 55px;
+  bottom: 31px;
   right: 5px;
-  width: 200px;
-  height: 45px;
+  width: 186px;
+  height: 26px;
+  margin-bottom: 2px;
+  color: black;
+  padding: 2px;
   background-color:var(--backgroundButtons); 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-left: 8px;
-}
-.coordinates{
-  position: absolute;
-  bottom: 5px;
-  right: 5px;
-  width: 200px;
-  height: 45px;
-  background-color:var(--backgroundButtons); 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-left: 8px;
-  display: grid;
 }

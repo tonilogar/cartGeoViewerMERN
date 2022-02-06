@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./ForgotPass.css";
 import { Link } from "react-router-dom";
 
-export default class ForgotPass extends Component {
+class ForgotPass extends Component {
   render() {
     return (
       <form action="data/" className="formForgotPass">
@@ -28,3 +28,5 @@ export default class ForgotPass extends Component {
     );
   }
 }
+
+export { ForgotPass } 
