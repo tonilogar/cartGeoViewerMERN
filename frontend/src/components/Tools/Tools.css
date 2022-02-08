@@ -2,9 +2,9 @@
   position: absolute;
   top: 6px;
   left: 5px;
-  width: 30px;
-  height: 30px;
-  background-color:var(--backgroundButtons);
+  width: 310px;
+  height: 500px;
+  background-color:rgba(255, 255, 255, 0);
 }
 
 .toolsOpen:hover, .toolsClose:hover  {
@@ -12,6 +12,48 @@
   cursor: pointer;
 }
 
+.toolsOpen, .toolsClose {
+  width: 30px;
+  height: 30px;
+  background-color:var(--backgroundButtons);
+}
+
 .toolsClose {
+  width: 30px;
+  height: 30px;
+  background-color:var(--backgroundButtons);
   display: none;
 }
+.projects {
+  position: absolute;
+  top: 35px;
+  left: 0px;
+  width: 30px;
+  height: 30px;
+  background-color:var(--backgroundButtons);
+  display: none;
+}
+
+.addFiles {
+  position: absolute;
+  top: 70px;
+  left: 0px;
+  width: 30px;
+  height: 30px;
+  background-color:var(--backgroundButtons);
+  display: none;
+}
+
+.mapBackground {
+  position: absolute;
+  top: 105px;
+  left: 0px;
+  width: 30px;
+  height: 30px;
+  background-color:var(--backgroundButtons);
+  display: none;
+}
+
+
+
+

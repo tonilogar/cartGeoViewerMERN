@@ -1,12 +1,15 @@
 import React from "react";
 import "./CoorZoomDegree.css";
 
-const CoorZoomDegree = ({lng, lat, zoom, degree} ) => {
+const CoorZoomDegree = ({lat, lng, zoom, degree} ) => {
   
   return (
-    <div className="sidebarStyle">
-      <div>
-        Long: {lng} | Lat: {lat} | Zoom: {zoom} | Degree: {degree} º
+    <div className="longLatZoomDegree">
+      <div className="longLat">
+      Lat: {lat} | Long: {lng} 
+      </div>
+      <div className="zoomDegree">
+        Zoom: {zoom} | Degree: {degree} º
       </div>
     </div>
   );

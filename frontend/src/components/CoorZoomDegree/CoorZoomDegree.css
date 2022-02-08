@@ -1,10 +1,12 @@
-.sidebarStyle {
+.longLatZoomDegree {
   position: absolute;
   bottom: 3px;
   right: 5px;
-  width: 380px;
+  width: 200px;
   margin-bottom: 2px;
   background-color:var(--backgroundButtons); 
   color: black;
   padding: 2px;
 }
+
+
