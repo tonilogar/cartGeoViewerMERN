@@ -24,35 +24,11 @@
   background-color:var(--backgroundButtons);
   display: none;
 }
-.projects {
-  position: absolute;
-  top: 35px;
-  left: 0px;
-  width: 30px;
-  height: 30px;
-  background-color:var(--backgroundButtons);
-  display: none;
-}
 
-.addFiles {
-  position: absolute;
-  top: 70px;
-  left: 0px;
-  width: 30px;
-  height: 30px;
-  background-color:var(--backgroundButtons);
-  display: none;
-}
 
-.mapBackground {
-  position: absolute;
-  top: 105px;
-  left: 0px;
-  width: 30px;
-  height: 30px;
-  background-color:var(--backgroundButtons);
-  display: none;
-}
+
+
+
 
 
 

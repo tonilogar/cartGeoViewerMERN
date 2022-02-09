@@ -3,8 +3,8 @@ import mapboxgl from 'mapbox-gl';
 import './Map.css';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
-import { CoorZoomDegree } from "../CoorZoomDegree/CoorZoomDegree"
-import { Perspective } from "../Perspective/Perspective"
+import { CoorZoomDegree } from "./CoorZoomDegree/CoorZoomDegree"
+import { Perspective } from "./Perspective/Perspective"
 
 mapboxgl.accessToken = "pk.eyJ1IjoidG9uaWxvZ2FyIiwiYSI6ImNqYjZlamY1dzBtMXEzM3FxbmppeXBpeHoifQ.DbzKh1wtO4p4QOUjj9eg1w";
 
@@ -23,7 +23,6 @@ function Map() {
   
   const switchDegree = () => {
       if (stateShowHide) {
-        console.log( " pepe False")
         document.getElementById("view_3D").style.display = "none"
         document.getElementById("view_2D").style.display = "block"
         setStateShowHide(false)
@@ -34,7 +33,6 @@ function Map() {
         document.getElementById("view_2D").style.display = "none"
         setStateShowHide(true)
         setStateSwitch(true)
-        console.log( " pepe True")
       }
     }
 
