@@ -4,6 +4,7 @@ import './Map.css';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import { CoorZoomDegree } from "../CoorZoomDegree/CoorZoomDegree"
+import { Perspective } from "../Perspective/Perspective"
 
 mapboxgl.accessToken = "pk.eyJ1IjoidG9uaWxvZ2FyIiwiYSI6ImNqYjZlamY1dzBtMXEzM3FxbmppeXBpeHoifQ.DbzKh1wtO4p4QOUjj9eg1w";
 
@@ -17,8 +18,25 @@ function Map() {
   const [lat, setLat] = React.useState(41.5000);
   const [zoom, setZoom] = React.useState(7.9);
   const [degree, setDegree] = React.useState(0);
-  const [stateShowHide, setStateShowHide] = React.useState(true);
-  const [stateSwitch, setStateSwitch] = React.useState(false);
+  const [stateShowHide, setStateShowHide] = React.useState(true)
+  const [stateSwitch, setStateSwitch] = React.useState(false)
+  
+  const switchDegree = () => {
+      if (stateShowHide) {
+        console.log( " pepe False")
+        document.getElementById("view_3D").style.display = "none"
+        document.getElementById("view_2D").style.display = "block"
+        setStateShowHide(false)
+        setStateSwitch(false)
+      }
+      else {
+        document.getElementById("view_3D").style.display = "block"
+        document.getElementById("view_2D").style.display = "none"
+        setStateShowHide(true)
+        setStateSwitch(true)
+        console.log( " pepe True")
+      }
+    }
 
   useEffect(() => {
     const map = new mapboxgl.Map({
@@ -72,25 +90,27 @@ function Map() {
     });
 
     //Catch de values zoom and degree
-    map.on("move", () => {
-      setZoom(map.getZoom().toFixed(2));
-      setDegree(map.getPitch().toFixed(0));
-      console.log(typeof degree + degree + " typt value");
+    map.on('move', () => {
+      setZoom(map.getZoom().toFixed(2))
+      setDegree(map.getPitch().toFixed(0))
+      //console.log(typeof(degree) + degree + ' typt value')
 
-      const valueDegree = map.getPitch().toFixed(0);
-      console.log(valueDegree + " value");
-
+      const valueDegree = map.getPitch().toFixed(0)
+      //console.log(valueDegree  + ' value')
+      
       if (valueDegree == 0) {
-        document.getElementById("view_3D").style.display = "block";
-        document.getElementById("view_2D").style.display = "none";
-        setStateShowHide(true);
-        console.log(valueDegree + " same 0");
-      } else {
-        document.getElementById("view_3D").style.display = "none";
-        document.getElementById("view_2D").style.display = "block";
-        setStateShowHide(false);
-        console.log(valueDegree + " diferent 0");
+        document.getElementById("view_3D").style.display = "block"
+        document.getElementById("view_2D").style.display = "none"
+        setStateShowHide(true)
+        //console.log(valueDegree  + ' same 0')
       }
+      else {
+        document.getElementById("view_3D").style.display = "none"
+        document.getElementById("view_2D").style.display = "block"
+        setStateShowHide(false)
+        //console.log(valueDegree  + ' diferent 0')
+      }
+
     });
     console.log(new mapboxgl.ScaleControl() + 'scale control');
     map.addControl(
@@ -125,31 +145,14 @@ function Map() {
 
     return () => map.remove();
   }, []);
-  const switchDegree = () => {
-    console.log(degree + " degreehh");
-    if (stateShowHide) {
-      console.log(" pepe");
-      document.getElementById("view_3D").style.display = "none";
-      document.getElementById("view_2D").style.display = "block";
-      setStateShowHide(false);
-      setStateSwitch(false);
-    } else {
-      document.getElementById("view_3D").style.display = "block";
-      document.getElementById("view_2D").style.display = "none";
-      setStateShowHide(true);
-      setStateSwitch(true);
-    }
-  };
-
-
-  //Coordinates
-
+ 
 
   return (
     <div>
       <div className="map-container" ref={mapContainerRef}></div>
       <div className="copiedCoordinates" id="copiedCoordinates">Double click get coordinates</div>
       <CoorZoomDegree lat={lat} lng={lng}  zoom={zoom} degree={degree} />
+      <Perspective switchDegree = {switchDegree}/>
     </div>
   );
 };

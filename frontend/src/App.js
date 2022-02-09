@@ -30,7 +30,7 @@ function App() {
         <Route exact path="/" component={Map}></Route>
         <Route exact path="/" component={Tools}/>
         <Route exact path="/" component={User}/>
-        <Route exact path="/" component={Perspective}/>
+        {/* <Route exact path="/" component={Perspective}/> */}
         <Route exact path="/" component={Info}/>
         <Route exact path="/" component={Layers}/>
         <Route exact path="/signin" component={SignIn}/>
