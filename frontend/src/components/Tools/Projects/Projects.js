@@ -3,55 +3,7 @@ import './Projects.css'
 
 const Projects = () => {
   const click = () => {
-    function readTextFile(file, callback) {
-      var rawFile = new XMLHttpRequest();
-      rawFile.overrideMimeType("application/json");
-      rawFile.open("GET", file, true);
-      rawFile.onreadystatechange = function () {
-        if (rawFile.readyState === 4 && rawFile.status == "200") {
-          callback(rawFile.responseText);
-        }
-      }
-      rawFile.send(null);
-    }
-
-    readTextFile("../json/projects.json", function (text) {
-      const data = JSON.parse(text);
-      const ul = document.createElement("ul");
-      ul.setAttribute("class", "projects");
-      ul.setAttribute("id", "projects");
-      for (const i in data) {
-        console.log(i + " projects");
-        //create li
-        const li = document.createElement("li");
-        //Li's text
-        const liProject = document.createTextNode(i);
-        li.appendChild(liProject);
-        li.setAttribute("id", "liProjects");
-        ul.appendChild(li);
-        const div = document.createElement("div");
-        div.setAttribute("id", "divProjects");
-        const input = document.createElement("input");
-        //Add property list
-        input.setAttribute("list", i);
-        const dataList = document.createElement("datalist");
-        //Add property id
-        dataList.setAttribute("id", i);
-        div.appendChild(input);
-        div.appendChild(dataList);
-
-
-        ul.appendChild(div);
-        for (var f = 0; f < data[i].length; f++) {
-          const option = document.createElement("option");
-          option.textContent = data[i][f];
-          option.setAttribute("id", "option");
-          console.log(data[i][f] + " projects");
-          dataList.appendChild(option);
-        }
-      }
-      document.body.appendChild(ul);
-    })
+    console.log('click')
     
   }
   return (

@@ -1,6 +1,7 @@
 import React from "react"
 import "./Tools.css"
 import { Projects } from './Projects/Projects'
+import { ReadJson } from './Projects/ReadJson'
 import { AddFiles } from './AddFiles/AddFiles'
 import { MapBackground } from './MapBackground/MapBackground'
 
@@ -76,6 +77,7 @@ const Tools = () => {
       <Projects/>
       <AddFiles/>
       <MapBackground/>
+      <ReadJson/>
     </div>
   )
 }
