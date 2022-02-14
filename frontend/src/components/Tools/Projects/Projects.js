@@ -1,9 +1,22 @@
 import React from 'react'
 import './Projects.css'
+import data from './projects.json'
 
 const Projects = () => {
+  
+  // Obteniendo todas las claves del JSON
   const click = () => {
-    console.log('click')
+    for (var i in data) {
+      console.log(i + " projectsUL");
+      
+  
+     
+      for (var f = 0; f < data[i].length; f++) {
+        
+        console.log(data[i][f] + " projectsLi");
+        
+      }
+    }
     
   }
   return (

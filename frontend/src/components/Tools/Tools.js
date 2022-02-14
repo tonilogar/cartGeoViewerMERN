@@ -27,7 +27,8 @@ const Tools = () => {
       setStateShowHide(true)
     }
   }
-
+  
+    
 
   return (
     <div className="containerTools" id="containerTools">
@@ -77,7 +78,8 @@ const Tools = () => {
       <Projects/>
       <AddFiles/>
       <MapBackground/>
-      <ReadJson/>
+      <ReadJson /* createList = {createList} *//>
+      
     </div>
   )
 }

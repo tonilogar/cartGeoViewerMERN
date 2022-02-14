@@ -1,54 +1,89 @@
 import React from 'react'
 import './ReadJson.css'
-import data from './projects.json'
+import jsonFile from './projects.json'
 
 const ReadJson = () => {
   // create React element <li>'s
-var rElmLi1 = React.createElement('li', {id:'li1'}, 'one');
-var rElmLi2 = React.createElement('li', {id:'li2'}, 'two');
-var rElmLi3 = React.createElement('li', {id:'li3'}, 'three');
+  //const rElmLi1 = React.createElement('li', { id: 'li1' }, 'one');
+  //const rElmLi2 = React.createElement('li', { id: 'li2' }, 'two');
+  //const rElmLi3 = React.createElement('li', { id: 'li3' }, 'three');
+  // create React element <ul>
+  //const reactElementUl = React.createElement('ul', { className: 'myList' }, rElmLi1, rElmLi2, rElmLi3);
 
-//create <ul> React element and add child React <li> elements to it
-var reactElementUl = React.createElement('ul', {className:'myList'}, rElmLi1,rElmLi2,rElmLi3);
   const click = () => {
- /*  const ulReact = React.createElement("ul",{className: 'projects'}); */
-  
-  // Obteniendo todas las claves del JSON
- /*  for (var i in data) {
-    console.log(i + " projects");
-    //create li
-    const li = document.createElement("li");
-    //Li's text
-    const liProject = document.createTextNode(i);
-    li.appendChild(liProject);
-    li.setAttribute("id", "liProjects");
-    ul.appendChild(li);
-    const div = document.createElement("div");
-    div.setAttribute("id", "divProjects");
-    const input = document.createElement("input");
-    //Add property list
-    input.setAttribute("list", i);
-    const dataList = document.createElement("datalist");
-    //Add property id
-    dataList.setAttribute("id", i);
-    div.appendChild(input);
-    div.appendChild(dataList);
+    console.log('into function click');
 
-
-    ul.appendChild(div);
-    for (var f = 0; f < data[i].length; f++) {
-      const option = document.createElement("option");
-      option.textContent = data[i][f];
-      option.setAttribute("id", "option");
-      console.log(data[i][f] + " projects");
-      dataList.appendChild(option);
-    }
   }
-  document.body.appendChild(ul); */
-}
+  const list = () => {
+    for (var i in jsonFile) {
+      console.log(i + " projectsUL");
+      
+  
+     
+      for (var f = 0; f < jsonFile[i].length; f++) {
+        
+        console.log(jsonFile[i][f] + " projectsLi");
+        
+      }
+    }
+    
+  }
+
+  const reactElementUl =
+    <ul>
+      <li>
+        <label>
+          Subsidences:
+          <input list="subsidences" name="subsidences" />
+        </label>
+        <datalist id="subsidences">
+          <option value="CAT S1 LOS ASC 201601-201612" />
+          <option value="CAT S1 LOS DESC 201601-201612" />
+          <option value="CAT S1 UD 201601-201612" />
+          <option value="CAT S1 EW 201601-201612" />
+          <option value="pepe" />
+        </datalist>
+      </li>
+      <li>
+        <label>
+          Farmstart:
+          <input list="farmstart" name="farmstart" />
+        </label>
+        <datalist id="farmstart">
+          <option value="2016" />
+          <option value="2017" />
+          <option value="2018" />
+          <option value="2019" />
+          <option value="2020" />
+          <option value="2021" />
+        </datalist>
+      </li>
+      <li>
+        <label>
+          NDVI:
+          <input list="ndvi" name="ndvi" />
+        </label>
+        <datalist id="ndvi">
+          <option value="2016" />
+          <option value="2017" />
+          <option value="2018" />
+          <option value="2019" />
+          <option value="2020" />
+          <option value="2021" />
+        </datalist>
+      </li>
+    </ul>;
+
+
+
+
   return (
-    <div className='readJson' onClick={click}>
-     { reactElementUl}
+    <div className='readJson' onClick={click} >
+      {/* {reactElementUl} */}
+      {/* {reactElementUl01} */}
+      
+        {list}
+      
 
     </div>
   )
