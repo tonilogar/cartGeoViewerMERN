@@ -20,20 +20,14 @@ const ReadJson = () => {
   
     
   
- /* print(); */
+ 
   const click = () => {
-    /* for (let i in data) {
-      console.log(i + " projectsUL");
-
-      for (let f = 0; f < data[i].length; f++) {
-        console.log(data[i][f] + " projectsLi");
-      }
-    } */
+   
   };
 
- 
+  
     const typeProjects=[]
-    let subProjects=[]
+    const subProjects=[]
     let optionsData;
     for (let i in data) {
       typeProjects.push(i);
@@ -53,10 +47,13 @@ const ReadJson = () => {
       <datalist>
         <option value={options} />
       </datalist>) */
-     
+      for (let i in data) {
+        console.log(i + ' in data')
+        
+      }
     
     const listItems = typeProjects.map((typeProject) =>
-      <li className={typeProject}>
+      <li className={typeProject.toString() + 'pepe'}>
         <label>
           {typeProject}
           <input list={typeProject} name={typeProject} />
@@ -64,7 +61,13 @@ const ReadJson = () => {
           <datalist id= {typeProject} >{optionsData}</datalist>
         </li>
     )
-
+    const elements = ['one', 'two', 'three'];
+    const items = []
+    
+    
+    for (const [index, value] of elements.entries()) {
+    items.push(<li key={index}>{value}</li>)
+    } 
 
   return (
     <div className="readJson" onClick={click}>
