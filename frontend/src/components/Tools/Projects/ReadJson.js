@@ -1,35 +1,84 @@
-import React from 'react'
-import './ReadJson.css'
-import jsonFile from './projects.json'
+import React from "react";
+import "./ReadJson.css";
+import data from "./projects.json";
+import { Li } from "./Li";
 
 const ReadJson = () => {
   // create React element <li>'s
+  /* const one = 'one'
+  const two = 'two'
+  const three = 'three' */
   //const rElmLi1 = React.createElement('li', { id: 'li1' }, 'one');
   //const rElmLi2 = React.createElement('li', { id: 'li2' }, 'two');
   //const rElmLi3 = React.createElement('li', { id: 'li3' }, 'three');
+  
   // create React element <ul>
   //const reactElementUl = React.createElement('ul', { className: 'myList' }, rElmLi1, rElmLi2, rElmLi3);
+ 
 
-  const click = () => {
-    console.log('into function click');
-
-  }
-  const list = () => {
-    for (var i in jsonFile) {
-      console.log(i + " projectsUL");
-      
   
-     
-      for (var f = 0; f < jsonFile[i].length; f++) {
-        
-        console.log(jsonFile[i][f] + " projectsLi");
-        
+  
+    
+  
+ /* print(); */
+  const click = () => {
+    /* for (let i in data) {
+      console.log(i + " projectsUL");
+
+      for (let f = 0; f < data[i].length; f++) {
+        console.log(data[i][f] + " projectsLi");
+      }
+    } */
+  };
+
+ 
+    const typeProjects=[]
+    let subProjects=[]
+    let optionsData;
+    for (let i in data) {
+      typeProjects.push(i);
+      
+      for (let f = 0; f < data[i].length; f++) {
+        subProjects.push(data[i][f]);
+        optionsData = subProjects.map((options) => 
+      <datalist>
+        <option value={options} />
+      </datalist>)
       }
     }
-    
-  }
+    console.log(typeProjects + ' projects')
+    console.log(subProjects + ' subProjects')
 
-  const reactElementUl =
+    /* const optionsData = subProjects.map((options) => 
+      <datalist>
+        <option value={options} />
+      </datalist>) */
+     
+    
+    const listItems = typeProjects.map((typeProject) =>
+      <li className={typeProject}>
+        <label>
+          {typeProject}
+          <input list={typeProject} name={typeProject} />
+          </label>
+          <datalist id= {typeProject} >{optionsData}</datalist>
+        </li>
+    )
+
+
+  return (
+    <div className="readJson" onClick={click}>
+      {/* {reactElementUl} */}
+      {/* {reactElementUl01} */}
+
+      {/* {list()} */}
+      <ul>{listItems}</ul>
+    </div>
+  );
+};
+
+export { ReadJson };
+ /* const reactElementUl =
     <ul>
       <li>
         <label>
@@ -72,21 +121,4 @@ const ReadJson = () => {
           <option value="2021" />
         </datalist>
       </li>
-    </ul>;
-
-
-
-
-  return (
-    <div className='readJson' onClick={click} >
-      {/* {reactElementUl} */}
-      {/* {reactElementUl01} */}
-      
-        {list}
-      
-
-    </div>
-  )
-}
-
-export { ReadJson }
+    </ul>; */
