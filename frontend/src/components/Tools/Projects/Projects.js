@@ -1,5 +1,6 @@
 import React,{ useRef } from "react";
 import "./Projects.css";
+import "./ListProjects/ListProjects.css";
 import { ListProjects } from "./ListProjects/ListProjects";
 const Projects = () => {
   const [stateShowHide, setStateShowHide] = React.useState(true)
@@ -7,11 +8,15 @@ const Projects = () => {
 
   const click = () => {
     if (stateShowHide) {
-      showDisplay.currentstyle.display="block"
+      /* showDisplay.currentstyle.display="block" */
+      document.getElementById("pepe").style.display = "none"
       setStateShowHide(false);
+      console.log('false')
     } else {
-      showDisplay.currentstyle.display="block"
+      /* showDisplay.currentstyle.display="block" */
+      document.getElementById("pepe").style.display = "block"
       setStateShowHide(true)
+      console.log('true')
     }
     
   }
@@ -38,6 +43,7 @@ const Projects = () => {
           stroke-width="1.2262"
         />
       </svg>
+      <div className="pepe"></div>
       <ListProjects />
     </React.Fragment>
   );
