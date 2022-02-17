@@ -1,7 +1,7 @@
 import React from "react";
 import "./ReadJson.css";
 import dataJson from "./projects.json";
-import { Li } from "./Li";
+
 
 const ReadJson = () => {
 
