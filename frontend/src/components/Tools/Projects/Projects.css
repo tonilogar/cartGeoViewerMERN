@@ -7,12 +7,9 @@
   background-color:var(--backgroundButtons);
   display: none;
 }
-.pepe {
+.list {
   position: absolute;
   top: 35px;
-  left: 100px;
-  width: 100px;
-  height: 100px;
-  background-color: blue;
+  left: 35px;
   display: none;
 }

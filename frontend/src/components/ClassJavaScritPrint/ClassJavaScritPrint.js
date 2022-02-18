@@ -1,12 +1,15 @@
 class ClassJavaScritPrint {
+  value1;
+  value2
   
-  constructor() {
-    console.log('constructor')
+  constructor(value1, value2) {
+    this.value1 = value1
+    this.value2 = value2
 
   }
-  print(textPrint) {
-    console.log('create object to class')
+  print() {
+    console.log(this.value1 + ' this.value1 ' + this.value2 + ' this.value2')
   }
 }
 
-export default ClassJavaScritPrint
+export {ClassJavaScritPrint}

@@ -10,20 +10,10 @@ import { SignIn } from './components/SignIn/SignIn'
 import { SignUp } from './components/SignUp/SignUp'
 import { Tools } from './components/Tools/Tools'
 import { User } from './components/User/User'
-import ClassJavaScritPrint from './components/ClassJavaScritPrint/ClassJavaScritPrint'
-
-/* import classMapBox from './components/classMapBox/classMapBox' */
-/* import { Props } from './components/Props' 
-import { Children } from './components/Children'  */
-
 
 
 function App() {
-  const mySeed = new ClassJavaScritPrint();
-  mySeed.print();
 
-  /* const myMapBox = new classMapBox("mapbox://styles/mapbox/satellite-v9", [1.3800, 41.5000], 25, 1.65, 7);
-   */
   return (
     <React.Fragment>
       <Router className = 'App'>
