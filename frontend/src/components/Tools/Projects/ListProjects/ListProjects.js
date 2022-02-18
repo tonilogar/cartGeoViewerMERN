@@ -5,6 +5,7 @@ import dataJson from "./projects.json";
 
 const ListProjects = () => {
   const [stateSelectedProject, setStateSelectedProject] = React.useState('')
+  let pepe;
   const listItems = dataJson.map((item) =>
     <li className='listProjectsLi'>
       <label className='listProjectsLabel'>
@@ -13,11 +14,12 @@ const ListProjects = () => {
       </label>
       <datalist id={item.project} >
         {item.dataProject.map((item) =>
-          console.log(item + ' selected project'),
+          /* pepe = item, */
           <option className={item.project} value={item} />)}
       </datalist>
     </li>
   )
+  console.log(pepe + 'pepepepeep')
   const sendSelectedProject = () => {
     return stateSelectedProject;
   }
