@@ -10,7 +10,7 @@ const ListProjects = () => {
     <li className='listProjectsLi'>
       <label className='listProjectsLabel'>
         {item.project}
-        <input list={item.project} name={item.project.toString() + "pepe"} />
+        <input list={item.project} name={item.project} />
       </label>
       <datalist id={item.project} >
         {item.dataProject.map((item) =>
