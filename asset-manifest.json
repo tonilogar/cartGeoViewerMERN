@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/cartGeoViewerMERN/static/css/main.07a23296.chunk.css",
+    "main.js": "/cartGeoViewerMERN/static/js/main.a3e2570e.chunk.js",
+    "main.js.map": "/cartGeoViewerMERN/static/js/main.a3e2570e.chunk.js.map",
+    "runtime-main.js": "/cartGeoViewerMERN/static/js/runtime-main.7e28ba4b.js",
+    "runtime-main.js.map": "/cartGeoViewerMERN/static/js/runtime-main.7e28ba4b.js.map",
+    "static/css/2.37ba6e15.chunk.css": "/cartGeoViewerMERN/static/css/2.37ba6e15.chunk.css",
+    "static/js/2.50fc9d76.chunk.js": "/cartGeoViewerMERN/static/js/2.50fc9d76.chunk.js",
+    "static/js/2.50fc9d76.chunk.js.map": "/cartGeoViewerMERN/static/js/2.50fc9d76.chunk.js.map",
+    "index.html": "/cartGeoViewerMERN/index.html",
+    "static/css/2.37ba6e15.chunk.css.map": "/cartGeoViewerMERN/static/css/2.37ba6e15.chunk.css.map",
+    "static/css/main.07a23296.chunk.css.map": "/cartGeoViewerMERN/static/css/main.07a23296.chunk.css.map",
+    "static/js/2.50fc9d76.chunk.js.LICENSE.txt": "/cartGeoViewerMERN/static/js/2.50fc9d76.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7e28ba4b.js",
+    "static/css/2.37ba6e15.chunk.css",
+    "static/js/2.50fc9d76.chunk.js",
+    "static/css/main.07a23296.chunk.css",
+    "static/js/main.a3e2570e.chunk.js"
+  ]
+}
